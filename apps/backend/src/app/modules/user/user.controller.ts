@@ -3,18 +3,20 @@ import { Response } from 'express';
 import { UserSignUpPostOptions } from '@family-dashboard/app-types';
 import { userRoutes } from '@family-dashboard/app-api-routes';
 
-import { UserCreatorService } from './services/user-creator.service';
+import { CreateUserPipe } from './pipes/create-user/create-user.pipe';
+import { RegistratorService } from './services/registrator.service';
 
 @Controller(userRoutes.name)
 export class UserController {
-  public constructor(private userCreatorService: UserCreatorService) {}
+  public constructor(private registratorService: RegistratorService) {}
 
   @Post(userRoutes.signUp.name)
+  @UsePipes(CreateUserPipe)
   public async createUser(
     @Body() body: UserSignUpPostOptions,
     @Res() res: Response
   ): Promise<Response> {
-    const user = await this.userCreatorService.createUser(body);
+    const user = await this.registratorService.createUser(body);
 
     return res.status(HttpStatus.CREATED).json({
       msg: 'User has been successfully created',

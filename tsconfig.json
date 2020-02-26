@@ -18,7 +18,8 @@
     "paths": {
       "@app-be/*": ["apps/backend/src/app/*"],
       "@family-dashboard/app-types": ["libs/app-types/src/index.ts"],
-      "@family-dashboard/app-api-routes": ["libs/app-api-routes/src/index.ts"]
+      "@family-dashboard/app-api-routes": ["libs/app-api-routes/src/index.ts"],
+      "@family-dashboard/app-errors": ["libs/app-errors/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
