@@ -2,11 +2,8 @@ import { Injectable, HttpStatus } from '@nestjs/common';
 import { getRepository, Connection } from 'typeorm';
 import { hash } from 'bcryptjs';
 import { isEmpty } from 'lodash';
-import {
-  UserSignUpPostOptions,
-  UserData,
-  UserConfirmPatchOptions,
-} from '@family-dashboard/app-types';
+import { UserSignUpPostOptions, UserConfirmPatchOptions } from '@family-dashboard/app-types';
+import { appErrors } from '@family-dashboard/app-errors';
 
 import { User as UserEntity } from '@app-be/entities';
 import { UserSerializatorService } from '@app-be/serializators/user/userSerializator.service';
@@ -14,7 +11,6 @@ import { throwError } from '@app-be/helpers/errors';
 import { TokenService } from '@app-be/modules-global/token/token.service';
 import { MailsService } from '@app-be/modules-global/mails/mails.service';
 import { TokenExpiration } from '@app-be/modules-global/token/token.constants';
-import { appErrors } from '@family-dashboard/app-errors';
 
 @Injectable()
 export class RegistratorService {
