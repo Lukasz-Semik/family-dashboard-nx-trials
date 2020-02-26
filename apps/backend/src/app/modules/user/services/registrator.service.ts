@@ -2,7 +2,11 @@ import { Injectable, HttpStatus } from '@nestjs/common';
 import { getRepository, Connection } from 'typeorm';
 import { hash } from 'bcryptjs';
 import { isEmpty } from 'lodash';
-import { UserSignUpPostOptions } from '@family-dashboard/app-types';
+import {
+  UserSignUpPostOptions,
+  UserData,
+  UserConfirmPatchOptions,
+} from '@family-dashboard/app-types';
 
 import { User as UserEntity } from '@app-be/entities';
 import { UserSerializatorService } from '@app-be/serializators/user/userSerializator.service';
@@ -10,6 +14,7 @@ import { throwError } from '@app-be/helpers/errors';
 import { TokenService } from '@app-be/modules-global/token/token.service';
 import { MailsService } from '@app-be/modules-global/mails/mails.service';
 import { TokenExpiration } from '@app-be/modules-global/token/token.constants';
+import { appErrors } from '@family-dashboard/app-errors';
 
 @Injectable()
 export class RegistratorService {
@@ -56,6 +61,28 @@ export class RegistratorService {
       }
 
       return this.userSerializator.serializeUser(createdUser);
+    } catch (err) {
+      throwError(HttpStatus.INTERNAL_SERVER_ERROR, err);
+    }
+  }
+
+  public async confirmUser(body: UserConfirmPatchOptions) {
+    try {
+      const { email } = await this.tokenService.decode(body.token);
+
+      const existingUser = await this.userRepo.findOne({ email });
+
+      if (isEmpty(existingUser)) {
+        throwError(HttpStatus.NOT_FOUND, { email: [appErrors.email.notExist] });
+      }
+
+      if (existingUser.isVerified) {
+        throwError(HttpStatus.CONFLICT, { email: [appErrors.email.alreadyVerified] });
+      }
+
+      const confirmedUser = await this.userRepo.save({ ...existingUser, isVerified: true });
+
+      return this.userSerializator.serializeUser(confirmedUser);
     } catch (err) {
       throwError(HttpStatus.INTERNAL_SERVER_ERROR, err);
     }
