@@ -23,6 +23,9 @@
     },
     "app-types": {
       "tags": []
+    },
+    "app-api-routes": {
+      "tags": []
     }
   }
 }

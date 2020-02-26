@@ -1,14 +1,15 @@
 import { Controller, Body, Post, Res, HttpStatus, UsePipes, Patch } from '@nestjs/common';
 import { Response } from 'express';
 import { UserSignUpPostOptions } from '@family-dashboard/app-types';
+import { userRoutes } from '@family-dashboard/app-api-routes';
 
 import { UserCreatorService } from './services/user-creator.service';
 
-@Controller('user')
+@Controller(userRoutes.name)
 export class UserController {
   public constructor(private userCreatorService: UserCreatorService) {}
 
-  @Post('/sign-up')
+  @Post(userRoutes.signUp.name)
   public async createUser(
     @Body() body: UserSignUpPostOptions,
     @Res() res: Response
