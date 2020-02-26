@@ -15,7 +15,10 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@app-be/*": ["apps/backend/src/app/*"],
+      "@family-dashboard/app-types": ["libs/app-types/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

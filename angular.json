@@ -21,10 +21,7 @@
             "polyfills": "apps/frontend/src/polyfills.ts",
             "tsConfig": "apps/frontend/tsconfig.app.json",
             "aot": true,
-            "assets": [
-              "apps/frontend/src/favicon.ico",
-              "apps/frontend/src/assets"
-            ],
+            "assets": ["apps/frontend/src/favicon.ico", "apps/frontend/src/assets"],
             "styles": ["apps/frontend/src/styles.scss"],
             "scripts": []
           },
@@ -80,10 +77,7 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": [
-              "apps/frontend/tsconfig.app.json",
-              "apps/frontend/tsconfig.spec.json"
-            ],
+            "tsConfig": ["apps/frontend/tsconfig.app.json", "apps/frontend/tsconfig.spec.json"],
             "exclude": ["**/node_modules/**", "!apps/frontend/**"]
           }
         },
@@ -163,10 +157,7 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": [
-              "apps/backend/tsconfig.app.json",
-              "apps/backend/tsconfig.spec.json"
-            ],
+            "tsConfig": ["apps/backend/tsconfig.app.json", "apps/backend/tsconfig.spec.json"],
             "exclude": ["**/node_modules/**", "!apps/backend/**"]
           }
         },
@@ -175,6 +166,29 @@
           "options": {
             "jestConfig": "apps/backend/jest.config.js",
             "tsConfig": "apps/backend/tsconfig.spec.json",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "app-types": {
+      "root": "libs/app-types",
+      "sourceRoot": "libs/app-types/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["libs/app-types/tsconfig.lib.json", "libs/app-types/tsconfig.spec.json"],
+            "exclude": ["**/node_modules/**", "!libs/app-types/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/app-types/jest.config.js",
+            "tsConfig": "libs/app-types/tsconfig.spec.json",
             "passWithNoTests": true
           }
         }
