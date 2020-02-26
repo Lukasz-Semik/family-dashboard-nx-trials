@@ -20,6 +20,15 @@
     },
     "backend": {
       "tags": []
+    },
+    "app-types": {
+      "tags": []
+    },
+    "app-api-routes": {
+      "tags": []
+    },
+    "app-errors": {
+      "tags": []
     }
   }
 }
