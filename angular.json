@@ -37,6 +37,9 @@
               "outputHashing": "all",
               "sourceMap": false,
               "extractCss": true,
+              "stylePreprocessorOptions": {
+                "includePaths": ["apps/frontend/src"]
+              },
               "namedChunks": false,
               "extractLicenses": true,
               "vendorChunk": false,

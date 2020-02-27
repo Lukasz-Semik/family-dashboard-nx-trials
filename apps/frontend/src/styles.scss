@@ -1,1 +1,31 @@
 /* You can add global styles to this file, and also import other style files */
+@import 'styles/_colors';
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  min-height: 100vh;
+  background: $orange-gradient-radial;
+}
+
+a {
+  text-decoration: none;
+  color: $black;
+
+  &:hover,
+  &:focus,
+  &:visited {
+    color: $black;
+  }
+}
+
+ul {
+  list-style: none;
+}

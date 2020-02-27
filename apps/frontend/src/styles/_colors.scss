@@ -1,0 +1,22 @@
+// COLORS:
+$black: #000;
+$white: #fff;
+$main-orange-dark: #ff8a00;
+$main-orange-light: #ffc000;
+$peach: #fff8ee;
+
+// GRADIENTS:
+$orange-gradient-linear: linear-gradient(
+  89.78deg,
+  $main-orange-dark 0.62%,
+  $main-orange-light 99.36%,
+  $main-orange-light 99.36%
+);
+$orange-gradient-radial: radial-gradient(
+  50% 128% at 50% 43.89%,
+  $main-orange-light 0%,
+  $main-orange-dark 100%
+);
+
+// SHADOWS:
+$shadow-black-big: 4px 4px 20px rgba(0, 0, 0, 0.5);
