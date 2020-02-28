@@ -1,0 +1,15 @@
+@import './colors';
+
+@mixin card-big-shadow($change-shadow: false) {
+  background-color: $peach;
+  box-shadow: $shadow-black-big;
+  border-radius: 3px;
+  transition: box-shadow 0.3s ease;
+
+  @if ($change-shadow) {
+    &:hover,
+    &:focus {
+      box-shadow: $shadow-blue-big;
+    }
+  }
+}

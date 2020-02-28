@@ -1,12 +1,10 @@
 import { NgModule } from '@angular/core';
 
-import { ElementsModule } from '@app-fe/shared/elements/elements.module';
-
 import { LandingPageComponent } from './landing-page/landing-page.component';
+import { SignUpPageComponent } from './sign-up-page/sign-up-page.component';
 
 @NgModule({
-  declarations: [LandingPageComponent],
-  imports: [ElementsModule],
-  exports: [LandingPageComponent],
+  declarations: [LandingPageComponent, SignUpPageComponent],
+  exports: [LandingPageComponent, SignUpPageComponent],
 })
 export class PagesModule {}
