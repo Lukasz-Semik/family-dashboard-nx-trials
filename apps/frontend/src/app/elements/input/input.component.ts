@@ -29,10 +29,6 @@ export class InputComponent {
     return this.form.get(this.name);
   }
 
-  check() {
-    console.log(this.form.get(this.name).errors);
-  }
-
   public get labelClassNames() {
     return {
       label: true,

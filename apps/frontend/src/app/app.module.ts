@@ -12,6 +12,7 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, '../assets/i18n/', '.json');
 }
+
 @NgModule({
   declarations: [AppComponent],
   imports: [
