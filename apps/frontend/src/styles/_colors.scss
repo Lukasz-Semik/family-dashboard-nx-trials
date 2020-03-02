@@ -1,0 +1,31 @@
+// COLORS:
+$black: #000;
+$white: #fff;
+$orange-dark: #ff8a00;
+$orange-light: #ffc000;
+$peach: #fff8ee;
+$blue-dark: #5457ff;
+// $blue-dark: #5498ff;
+$blue-light: #3985b0;
+$violet-dark: #532ea0;
+$grey-super-light: #ededed;
+$grey-dark: #777;
+$error-red: #b01d13;
+
+// GRADIENTS:
+$orange-gradient-linear: linear-gradient(
+  89.78deg,
+  $orange-dark 0.62%,
+  $orange-light 99.36%,
+  $orange-light 99.36%
+);
+$orange-gradient-radial: radial-gradient(
+  50% 128% at 50% 43.89%,
+  $orange-light 0%,
+  $orange-dark 100%
+);
+
+// SHADOWS:
+$shadow-black-big: 4px 4px 20px rgba($black, 0.5);
+$shadow-black-small: 4px 4px 15px rgba($black, 0.25);
+$shadow-blue-big: 4px 4px 20px rgba($blue-light, 1);

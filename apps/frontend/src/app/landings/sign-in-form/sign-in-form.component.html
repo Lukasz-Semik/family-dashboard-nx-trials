@@ -1,0 +1,41 @@
+<div>
+  <form [formGroup]="signInForm" (ngSubmit)="onSubmit()" class="wrapper">
+    <div class="field-wrapper">
+      <div class="field">
+        <app-input
+          name="email"
+          type="email"
+          [form]="signInForm"
+          [labelText]="'shared.fields.email.label' | translate"
+          [placeholderText]="'shared.fields.email.placeholder' | translate"
+          [isFormSubmitted]="isSubmitted"
+        ></app-input>
+      </div>
+    </div>
+
+    <div class="field-wrapper">
+      <div class="field">
+        <app-input
+          name="password"
+          type="password"
+          [form]="signInForm"
+          [labelText]="'shared.fields.password.label' | translate"
+          [placeholderText]="'shared.fields.password.placeholder' | translate"
+          [isFormSubmitted]="isSubmitted"
+        ></app-input>
+      </div>
+    </div>
+
+    <div class="button-wrapper">
+      <app-button
+        [isDisabled]="signInForm.pristine"
+        [text]="'shared.submit' | translate"
+      ></app-button>
+    </div>
+
+    <p class="register-note">
+      {{ 'landings.signIn.noAccount' | translate }}
+      <a routerLink="/sign-up">{{ 'landings.signIn.register' | translate }}</a>
+    </p>
+  </form>
+</div>

@@ -1,0 +1,44 @@
+@import 'apps/frontend/src/styles/_colors';
+@import 'apps/frontend/src/styles/_mixins';
+
+.logo {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  font-size: 4rem;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+  font-family: 'Changa One', sans-serif;
+  letter-spacing: 1px;
+  color: $black;
+}
+
+.wrapper {
+  position: relative;
+  height: 100vh;
+}
+
+.inner-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.card {
+  @include card-big-shadow();
+
+  width: 60rem;
+  max-width: 95%;
+}
+
+.with-margin {
+  margin-bottom: 6rem;
+}
+
+.title {
+  padding: 2rem 2rem;
+  font-size: 3rem;
+  text-align: center;
+  font-weight: 900;
+  color: $orange-dark;
+}

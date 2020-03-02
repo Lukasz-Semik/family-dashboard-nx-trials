@@ -17,6 +17,7 @@
     "baseUrl": ".",
     "paths": {
       "@app-be/*": ["apps/backend/src/app/*"],
+      "@app-fe/*": ["apps/frontend/src/app/*"],
       "@family-dashboard/app-types": ["libs/app-types/src/index.ts"],
       "@family-dashboard/app-api-routes": ["libs/app-api-routes/src/index.ts"],
       "@family-dashboard/app-errors": ["libs/app-errors/src/index.ts"]
