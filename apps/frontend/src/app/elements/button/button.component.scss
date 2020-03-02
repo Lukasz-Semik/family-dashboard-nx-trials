@@ -1,0 +1,21 @@
+@import 'apps/frontend/src/styles/_colors';
+
+.button {
+  display: block;
+  width: 100%;
+  padding: 1rem;
+  font-size: 2rem;
+  background-color: $violet-dark;
+  color: $white;
+  border-radius: 3px;
+  box-shadow: $shadow-black-small;
+  transition: box-shadow 0.3s ease;
+
+  &:disabled {
+    opacity: 0.6;
+  }
+
+  &:hover {
+    box-shadow: $shadow-blue-big;
+  }
+}

@@ -1,0 +1,62 @@
+@import 'apps/frontend/src/styles/_colors';
+@import 'apps/frontend/src/styles/_variables';
+
+@mixin separator-styles {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+}
+
+.wrapper {
+  position: relative;
+  color: $grey-dark;
+}
+
+.label {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: $fw-bold;
+  transition: color 0.3s ease;
+
+  &.is-focused {
+    color: $orange-dark;
+  }
+}
+
+.input {
+  display: block;
+  width: 100%;
+  padding: 0.5rem 0;
+  font-size: 2rem;
+  border: 0;
+  background-color: transparent;
+  outline: none;
+
+  &::placeholder {
+    font-weight: $fw-light;
+  }
+}
+
+.separator {
+  @include separator-styles();
+
+  background-color: $grey-dark;
+}
+
+.separator-indicator {
+  background-color: $orange-dark;
+  transform: scale(0);
+  transition: transform 0.3s ease;
+
+  &.is-focused {
+    transform: scale(1);
+  }
+}
+
+.error-msg {
+  margin-top: 0.5rem;
+  font-size: 1.2rem;
+  color: $error-red;
+}

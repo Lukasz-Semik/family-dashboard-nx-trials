@@ -1,0 +1,25 @@
+{
+  "landings": {
+    "signIn": {
+      "title": "Sign In",
+      "noAccount": "Don't you have an account? You can",
+      "register": "register here!"
+    }
+  },
+  "shared": {
+    "submit": "Submit",
+    "fields": {
+      "email": {
+        "label": "Email",
+        "placeholder": "Your email"
+      },
+      "password": {
+        "label": "Password",
+        "placeholder": "Your password"
+      }
+    }
+  },
+  "errors": {
+    "required": "Required"
+  }
+}
