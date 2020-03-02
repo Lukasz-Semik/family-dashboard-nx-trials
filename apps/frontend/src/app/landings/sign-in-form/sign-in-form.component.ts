@@ -8,7 +8,7 @@ import { requiredValidator } from '@app-fe/helpers/validators';
   templateUrl: './sign-in-form.component.html',
   styleUrls: ['./sign-in-form.component.scss'],
 })
-export class SignInFormomponent implements OnInit {
+export class SignInFormComponent implements OnInit {
   public signInForm: FormGroup;
   public isSubmitted = false;
 

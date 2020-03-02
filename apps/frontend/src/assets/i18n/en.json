@@ -4,6 +4,9 @@
       "title": "Sign In",
       "noAccount": "Don't you have an account? You can",
       "register": "register here!"
+    },
+    "signUp": {
+      "title": "Sign Up"
     }
   },
   "shared": {
@@ -16,6 +19,14 @@
       "password": {
         "label": "Password",
         "placeholder": "Your password"
+      },
+      "firstName": {
+        "label": "First name",
+        "placeholder": "Your name"
+      },
+      "lastName": {
+        "label": "Last name",
+        "placeholder": "Your last name"
       }
     }
   },

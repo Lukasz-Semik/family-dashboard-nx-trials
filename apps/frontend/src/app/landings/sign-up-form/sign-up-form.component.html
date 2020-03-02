@@ -1,0 +1,40 @@
+<div>
+  <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()" class="wrapper">
+    <div class="field-wrapper">
+      <div class="field">
+        <app-input
+          name="firstName"
+          [form]="signUpForm"
+          [labelText]="'shared.fields.firstName.label' | translate"
+          [placeholderText]="'shared.fields.firstName.placeholder' | translate"
+          [isFormSubmitted]="isSubmitted"
+        ></app-input>
+      </div>
+    </div>
+
+    <div class="field-wrapper">
+      <div class="field">
+        <app-input
+          name="lastName"
+          [form]="signUpForm"
+          [labelText]="'shared.fields.lastName.label' | translate"
+          [placeholderText]="'shared.fields.lastName.placeholder' | translate"
+          [isFormSubmitted]="isSubmitted"
+        ></app-input>
+      </div>
+    </div>
+
+    <div class="field-wrapper">
+      <div class="field">
+        <app-date-picker></app-date-picker>
+      </div>
+    </div>
+
+    <div class="button-wrapper">
+      <app-button
+        [isDisabled]="signUpForm.pristine"
+        [text]="'shared.submit' | translate"
+      ></app-button>
+    </div>
+  </form>
+</div>
