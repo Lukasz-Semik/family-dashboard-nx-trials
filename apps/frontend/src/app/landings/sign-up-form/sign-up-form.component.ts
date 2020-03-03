@@ -16,7 +16,9 @@ export class SignUpFormComponent implements OnInit {
     this.signUpForm = new FormGroup({
       firstName: new FormControl('', requiredValidator()),
       lastName: new FormControl('', requiredValidator()),
+      birthDate: new FormControl(''),
     });
+    // TODO: resolve it
     this.signUpForm.valueChanges.subscribe(() => console.log('test'));
   }
 
@@ -27,6 +29,7 @@ export class SignUpFormComponent implements OnInit {
   }
 
   onSubmit() {
+    console.log(this.signUpForm);
     this.isSubmitted = true;
   }
 }

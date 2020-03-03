@@ -27,6 +27,10 @@
       "lastName": {
         "label": "Last name",
         "placeholder": "Your last name"
+      },
+      "birthDate": {
+        "label": "Date of birth",
+        "placeholder": "Your date of birth"
       }
     }
   },

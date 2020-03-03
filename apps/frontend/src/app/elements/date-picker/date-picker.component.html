@@ -1,5 +1,26 @@
-<div class="wrapper">
-  <input [matDatepicker]="myDatepicker" />
-  <mat-datepicker-toggle [for]="myDatepicker"></mat-datepicker-toggle>
-  <mat-datepicker #myDatepicker></mat-datepicker>
+<div [formGroup]="form">
+  <app-field
+    [name]="name"
+    [labelText]="labelText"
+    [isFormSubmitted]="isFormSubmitted"
+    [field]="field"
+    [isFocused]="isHovered || isFocused"
+  >
+    <input
+      class="input"
+      type="text"
+      [id]="name"
+      [name]="name"
+      [formControlName]="name"
+      [placeholder]="placeholder"
+      (mouseenter)="this.isHovered = true"
+      (mouseleave)="this.isHovered = false"
+      (focus)="this.isFocused = true"
+      (blur)="this.isFocused = false"
+      (click)="myDatepicker.open()"
+      [matDatepicker]="myDatepicker"
+    />
+
+    <mat-datepicker panelClass="date-picker-overrides" #myDatepicker></mat-datepicker>
+  </app-field>
 </div>

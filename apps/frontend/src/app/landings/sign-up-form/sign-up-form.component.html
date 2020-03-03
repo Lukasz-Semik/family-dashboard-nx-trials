@@ -26,7 +26,13 @@
 
     <div class="field-wrapper">
       <div class="field">
-        <app-date-picker></app-date-picker>
+        <app-date-picker
+          [form]="signUpForm"
+          name="birthDate"
+          [labelText]="'shared.fields.birthDate.label' | translate"
+          [placeholderText]="'shared.fields.birthDate.placeholder' | translate"
+          [isFormSubmitted]="isSubmitted"
+        ></app-date-picker>
       </div>
     </div>
 

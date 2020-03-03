@@ -13,10 +13,13 @@
 
   &:disabled {
     opacity: 0.6;
+    cursor: default;
   }
 
-  &:hover,
-  &:focus {
-    box-shadow: $shadow-blue-big;
+  &:not(:disabled) {
+    &:hover,
+    &:focus {
+      box-shadow: $shadow-blue-big;
+    }
   }
 }

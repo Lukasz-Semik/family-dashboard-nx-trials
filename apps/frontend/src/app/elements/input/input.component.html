@@ -1,9 +1,13 @@
 <div [formGroup]="form">
-  <div class="wrapper">
-    <label [class]="labelClassNames" [for]="name">{{ labelText }}</label>
+  <app-field
+    [name]="name"
+    [labelText]="labelText"
+    [isFormSubmitted]="isFormSubmitted"
+    [field]="field"
+    [isFocused]="isHovered || isFocused"
+  >
     <input
       class="input"
-      type="email"
       [id]="name"
       [name]="name"
       [formControlName]="name"
@@ -14,9 +18,5 @@
       (focus)="this.isFocused = true"
       (blur)="this.isFocused = false"
     />
-    <div class="separator"></div>
-    <div [class]="indicatorClassNames"></div>
-  </div>
-
-  <p class="error-msg" *ngIf="errorMsg">{{ errorMsg | translate }}</p>
+  </app-field>
 </div>
