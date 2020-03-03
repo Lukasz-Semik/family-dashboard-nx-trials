@@ -31,6 +31,13 @@
       "birthDate": {
         "label": "Date of birth",
         "placeholder": "Your date of birth"
+      },
+      "gender": {
+        "label": "Gender",
+        "placeholder": "Your gender",
+        "male": "Male",
+        "female": "Female",
+        "other": "Other"
       }
     }
   },

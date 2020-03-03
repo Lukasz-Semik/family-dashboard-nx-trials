@@ -8,8 +8,4 @@ import { FieldBase } from '../base/field.base';
   styleUrls: ['./date-picker.component.scss'],
   encapsulation: ViewEncapsulation.None,
 })
-export class DatePickerComponent extends FieldBase {
-  public dateClass = () => {
-    return 'date-picker-override';
-  };
-}
+export class DatePickerComponent extends FieldBase {}

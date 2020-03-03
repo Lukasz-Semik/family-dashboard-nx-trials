@@ -36,6 +36,20 @@
       </div>
     </div>
 
+    <div class="field-wrapper">
+      <div class="field">
+        <app-dropdown
+          #genderDropdown
+          [form]="signUpForm"
+          name="gender"
+          [labelText]="'shared.fields.gender.label' | translate"
+          [placeholderText]="'shared.fields.gender.placeholder' | translate"
+          [isFormSubmitted]="isSubmitted"
+          [items]="genders"
+        ></app-dropdown>
+      </div>
+    </div>
+
     <div class="button-wrapper">
       <app-button
         [isDisabled]="signUpForm.pristine"

@@ -3,23 +3,20 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import {
-  MatNativeDateModule,
-  DateAdapter,
-  MAT_DATE_LOCALE,
-  MAT_DATE_FORMATS,
-} from '@angular/material/core';
+import { MatSelectModule } from '@angular/material/select';
+import { DateAdapter, MAT_DATE_LOCALE, MAT_DATE_FORMATS } from '@angular/material/core';
 import {
   MatMomentDateModule,
   MomentDateAdapter,
   MAT_MOMENT_DATE_ADAPTER_OPTIONS,
 } from '@angular/material-moment-adapter';
 
+import { FieldComponent } from './field/field.component';
 import { InputComponent } from './input/input.component';
 import { ButtonComponent } from './button/button.component';
 import { LogoComponent } from './logo/logo.component';
 import { DatePickerComponent } from './date-picker/date-picker.component';
-import { FieldComponent } from './field/field.component';
+import { DropdownComponent } from './dropdown/dropdown.component';
 
 export const MY_FORMATS = {
   parse: {
@@ -35,11 +32,12 @@ export const MY_FORMATS = {
 
 @NgModule({
   declarations: [
+    FieldComponent,
     InputComponent,
     ButtonComponent,
     LogoComponent,
     DatePickerComponent,
-    FieldComponent,
+    DropdownComponent,
   ],
   imports: [
     ReactiveFormsModule,
@@ -48,6 +46,7 @@ export const MY_FORMATS = {
     TranslateModule,
     MatDatepickerModule,
     MatMomentDateModule,
+    MatSelectModule,
   ],
   providers: [
     {
@@ -58,6 +57,6 @@ export const MY_FORMATS = {
 
     { provide: MAT_DATE_FORMATS, useValue: MY_FORMATS },
   ],
-  exports: [InputComponent, ButtonComponent, LogoComponent, DatePickerComponent],
+  exports: [InputComponent, ButtonComponent, LogoComponent, DatePickerComponent, DropdownComponent],
 })
 export class ElementsModule {}

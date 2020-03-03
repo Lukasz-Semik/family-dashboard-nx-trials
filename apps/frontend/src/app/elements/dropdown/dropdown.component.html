@@ -1,0 +1,20 @@
+<div [formGroup]="form" class="wrapper">
+  <app-field
+    [name]="name"
+    [labelText]="labelText"
+    [isFormSubmitted]="isFormSubmitted"
+    [field]="field"
+    [isFocused]="isHovered || isFocused"
+  >
+    <mat-select
+      [id]="name"
+      [placeholder]="placeholderText"
+      [panelClass]="'dropdown-overrides'"
+      [formControlName]="name"
+    >
+      <mat-option *ngFor="let item of items" [value]="item.value">
+        {{ item.label }}
+      </mat-option>
+    </mat-select>
+  </app-field>
+</div>
