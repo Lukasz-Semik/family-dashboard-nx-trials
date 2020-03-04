@@ -29,6 +29,9 @@
     },
     "app-errors": {
       "tags": []
+    },
+    "app-constants": {
+      "tags": []
     }
   }
 }

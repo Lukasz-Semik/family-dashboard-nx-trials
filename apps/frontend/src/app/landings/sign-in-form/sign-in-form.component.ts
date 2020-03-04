@@ -12,19 +12,13 @@ export class SignInFormComponent implements OnInit {
   public signInForm: FormGroup;
   public isSubmitted = false;
 
+  constructor() {}
+
   ngOnInit() {
     this.signInForm = new FormGroup({
       email: new FormControl('', requiredValidator()),
       password: new FormControl('', requiredValidator()),
     });
-    // TODO: resolve it
-    this.signInForm.valueChanges.subscribe(() => console.log('test'));
-  }
-
-  private onValueChange() {
-    if (this.isSubmitted) {
-      this.isSubmitted = false;
-    }
   }
 
   public onSubmit() {
