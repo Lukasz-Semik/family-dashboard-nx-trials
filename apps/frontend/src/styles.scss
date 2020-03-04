@@ -39,6 +39,7 @@ html {
 }
 
 body {
+  overflow: scroll;
   min-height: 100vh;
   background: $orange-gradient-radial;
 }
@@ -66,9 +67,4 @@ button {
   &:hover {
     cursor: pointer;
   }
-}
-
-html,
-body {
-  height: 100%;
 }

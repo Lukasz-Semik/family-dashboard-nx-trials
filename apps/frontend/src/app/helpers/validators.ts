@@ -28,7 +28,7 @@ export function emailValidator(): ValidatorFn {
   return (control: AbstractControl): { [key: string]: any } | null => {
     const isValid = isEmail(control.value);
 
-    return isValid ? null : { message: 'errors.email' };
+    return isValid ? null : { message: 'errors.emailWrongFormat' };
   };
 }
 

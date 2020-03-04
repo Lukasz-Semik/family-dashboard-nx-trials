@@ -12,27 +12,21 @@ import {
 import { DropdownComponent } from '@app-fe/elements/dropdown/dropdown.component';
 import { genders as gendersRaw } from '@app-fe/constants/fields';
 
-enum Step {
-  PresonalDetails = 'personal',
-  AccountDetails = 'account',
-}
+import { SignUpFormService } from './sign-up-form.service';
 
 @Component({
   selector: 'app-sign-up-form',
   templateUrl: './sign-up-form.component.html',
   styleUrls: ['./sign-up-form.component.scss'],
+  providers: [SignUpFormService],
 })
 export class SignUpFormComponent implements OnInit {
   @ViewChild('genderDropdown') genderDropdown: DropdownComponent<string>;
 
   public signUpForm: FormGroup;
-  public isPersonalDetailsFormSubmitted = false;
-  public isAccountDetailsFormSubmitted = false;
-  public showPasswordsError = false;
   public genders = gendersRaw;
-  public step = Step.PresonalDetails;
 
-  constructor(private translate: TranslateService) {}
+  constructor(private translate: TranslateService, public signUpService: SignUpFormService) {}
 
   ngOnInit() {
     this.signUpForm = new FormGroup({
@@ -57,10 +51,10 @@ export class SignUpFormComponent implements OnInit {
 
     this.accountDetailsForm
       .get('passwordConfirm')
-      .valueChanges.subscribe(() => (this.showPasswordsError = false));
+      .valueChanges.subscribe(() => (this.signUpService.showPasswordsError = false));
     this.accountDetailsForm
       .get('password')
-      .valueChanges.subscribe(() => (this.showPasswordsError = false));
+      .valueChanges.subscribe(() => (this.signUpService.showPasswordsError = false));
 
     this.setGenders();
   }
@@ -74,29 +68,7 @@ export class SignUpFormComponent implements OnInit {
   }
 
   public onSubmit() {
-    this.isPersonalDetailsFormSubmitted = true;
-
-    if (this.step === Step.PresonalDetails && this.personalDetailsForm.valid) {
-      this.step = Step.AccountDetails;
-    } else if (this.accountDetailsForm.valid) {
-      this.isAccountDetailsFormSubmitted = true;
-
-      const arePasswordsValid =
-        this.accountDetailsForm.get('password').value ===
-        this.accountDetailsForm.get('passwordConfirm').value;
-
-      if (!arePasswordsValid) {
-        this.showPasswordsError = true;
-      }
-    }
-  }
-
-  public back() {
-    this.step = Step.PresonalDetails;
-  }
-
-  public get personalDetailsStep() {
-    return Step.PresonalDetails;
+    this.signUpService.onSubmit(this.personalDetailsForm, this.accountDetailsForm);
   }
 
   public get personalDetailsForm() {

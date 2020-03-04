@@ -1,8 +1,18 @@
 <div>
   <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()" class="wrapper">
-    <button *ngIf="step !== personalDetailsStep" class="back-button" (click)="back()">Back</button>
+    <button
+      *ngIf="signUpService.step !== signUpService.personalDetailsStep"
+      class="back-button"
+      type="button"
+      (click)="signUpService.back()"
+    >
+      Back
+    </button>
 
-    <div *ngIf="step === personalDetailsStep" formGroupName="personalDetails">
+    <div
+      *ngIf="signUpService.step === signUpService.personalDetailsStep"
+      formGroupName="personalDetails"
+    >
       <div class="field-wrapper">
         <div class="field">
           <app-input
@@ -54,7 +64,10 @@
       </div>
     </div>
 
-    <div *ngIf="step !== personalDetailsStep" formGroupName="accountDetails">
+    <div
+      *ngIf="signUpService.step !== signUpService.personalDetailsStep"
+      formGroupName="accountDetails"
+    >
       <div class="field-wrapper">
         <div class="field">
           <app-input
@@ -92,8 +105,8 @@
           ></app-input>
 
           <app-error-msg
-            *ngIf="showPasswordsError"
-            message="errors.passwordsEquality"
+            *ngIf="signUpService.showPasswordsError"
+            message="errors.passwordsMustBeEqual"
           ></app-error-msg>
         </div>
       </div>
@@ -101,9 +114,12 @@
 
     <div class="button-wrapper">
       <app-button
-        [isDisabled]="signUpForm.pristine"
+        [isDisabled]="signUpForm.pristine || signUpService.isLoading"
+        [isLoading]="signUpService.isLoading"
         [text]="
-          step === personalDetailsStep ? ('shared.next' | translate) : ('shared.submit' | translate)
+          signUpService.step === signUpService.personalDetailsStep
+            ? ('shared.next' | translate)
+            : ('shared.submit' | translate)
         "
       ></app-button>
     </div>

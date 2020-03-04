@@ -10,6 +10,7 @@ import {
   MomentDateAdapter,
   MAT_MOMENT_DATE_ADAPTER_OPTIONS,
 } from '@angular/material-moment-adapter';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 import { FieldComponent } from './field/field.component';
 import { InputComponent } from './input/input.component';
@@ -18,6 +19,7 @@ import { LogoComponent } from './logo/logo.component';
 import { DatePickerComponent } from './date-picker/date-picker.component';
 import { DropdownComponent } from './dropdown/dropdown.component';
 import { ErrorMsgComponent } from './error-msg/error-msg.component';
+import { LoaderComponent } from './loader/loader.component';
 
 export const MY_FORMATS = {
   parse: {
@@ -40,6 +42,7 @@ export const MY_FORMATS = {
     DatePickerComponent,
     DropdownComponent,
     ErrorMsgComponent,
+    LoaderComponent,
   ],
   imports: [
     ReactiveFormsModule,
@@ -49,6 +52,7 @@ export const MY_FORMATS = {
     MatDatepickerModule,
     MatMomentDateModule,
     MatSelectModule,
+    NgxSpinnerModule,
   ],
   providers: [
     {
@@ -66,6 +70,7 @@ export const MY_FORMATS = {
     DatePickerComponent,
     DropdownComponent,
     ErrorMsgComponent,
+    LoaderComponent,
   ],
 })
 export class ElementsModule {}

@@ -2,8 +2,9 @@
 
 .button {
   display: block;
-  width: 100%;
   padding: 1rem;
+  width: 100%;
+  min-height: 4.4rem;
   font-size: 2rem;
   background-color: $violet-dark;
   color: $white;
@@ -22,4 +23,10 @@
       box-shadow: $shadow-blue-big;
     }
   }
+}
+
+.loader-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
