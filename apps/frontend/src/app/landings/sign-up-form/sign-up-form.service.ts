@@ -1,5 +1,9 @@
 import { AbstractControl } from '@angular/forms';
 import { Injectable } from '@angular/core';
+import { Gender } from '@family-dashboard/app-constants';
+import { Router } from '@angular/router';
+
+import { ApiService } from '@app-fe/api/api.service';
 
 enum Step {
   PresonalDetails = 'personal',
@@ -14,6 +18,8 @@ export class SignUpFormService {
   public showPasswordsError = false;
   public isLoading = false;
 
+  constructor(private apiService: ApiService, private routerService: Router) {}
+
   public back() {
     this.step = Step.PresonalDetails;
   }
@@ -22,7 +28,7 @@ export class SignUpFormService {
     return Step.PresonalDetails;
   }
 
-  public onSubmit(personalDetailsForm: AbstractControl, accountDetailsForm: AbstractControl) {
+  public async onSubmit(personalDetailsForm: AbstractControl, accountDetailsForm: AbstractControl) {
     this.isPersonalDetailsFormSubmitted = true;
 
     if (this.step === Step.PresonalDetails && personalDetailsForm.valid) {
@@ -39,16 +45,25 @@ export class SignUpFormService {
         return;
       }
 
-      console.log({
-        accountDetailsForm,
-        personalDetailsForm,
-      });
-
       this.isLoading = true;
 
-      setTimeout(() => {
+      try {
+        await this.apiService.user.signUp({
+          password: accountDetailsForm.get('password').value as string,
+          email: accountDetailsForm.get('email').value as string,
+          firstName: personalDetailsForm.get('firstName').value as string,
+          lastName: personalDetailsForm.get('lastName').value as string,
+          gender: personalDetailsForm.get('gender').value as Gender,
+          birthDate: personalDetailsForm.get('birthDate').value as string,
+        });
+
         this.isLoading = false;
-      }, 3000);
+
+        this.routerService.navigate(['/']);
+      } catch (err) {
+        // TODO: add notifications
+        console.log(err);
+      }
     }
   }
 }

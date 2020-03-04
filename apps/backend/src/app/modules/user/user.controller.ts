@@ -1,4 +1,4 @@
-import { Controller, Body, Post, Res, HttpStatus, UsePipes, Patch } from '@nestjs/common';
+import { Controller, Body, Post, Res, HttpStatus, UsePipes, Patch, Get } from '@nestjs/common';
 import { Response } from 'express';
 import { UserSignUpPostOptions, UserConfirmPatchOptions } from '@family-dashboard/app-types';
 import { userRoutes } from '@family-dashboard/app-api-routes';

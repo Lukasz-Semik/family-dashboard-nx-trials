@@ -11,6 +11,7 @@ import {
   MAT_MOMENT_DATE_ADAPTER_OPTIONS,
 } from '@angular/material-moment-adapter';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { RouterModule } from '@angular/router';
 
 import { FieldComponent } from './field/field.component';
 import { InputComponent } from './input/input.component';
@@ -53,6 +54,7 @@ export const MY_FORMATS = {
     MatMomentDateModule,
     MatSelectModule,
     NgxSpinnerModule,
+    RouterModule,
   ],
   providers: [
     {
