@@ -5,7 +5,6 @@ import {
   CreateDateColumn,
   UpdateDateColumn,
 } from 'typeorm';
-
 import { Gender } from '@family-dashboard/app-constants';
 
 @Entity()
