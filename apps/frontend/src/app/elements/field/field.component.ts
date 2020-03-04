@@ -13,6 +13,10 @@ export class FieldComponent {
   @Input() field: AbstractControl;
   @Input() isFocused: boolean;
 
+  private get hasError() {
+    return !this.field.valid && (this.field.touched || this.isFormSubmitted);
+  }
+
   public get labelClassNames() {
     return {
       label: true,
@@ -29,8 +33,10 @@ export class FieldComponent {
   }
 
   public get errorMsg() {
-    const hasErrror = !this.field.valid && (this.field.touched || this.isFormSubmitted);
+    return this.hasError ? this.field.errors['message'] : '';
+  }
 
-    return hasErrror ? this.field.errors['message'] : '';
+  public get errorMsgValue() {
+    return this.hasError ? this.field.errors['value'] : '';
   }
 }

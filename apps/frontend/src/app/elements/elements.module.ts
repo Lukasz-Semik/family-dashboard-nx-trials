@@ -17,6 +17,7 @@ import { ButtonComponent } from './button/button.component';
 import { LogoComponent } from './logo/logo.component';
 import { DatePickerComponent } from './date-picker/date-picker.component';
 import { DropdownComponent } from './dropdown/dropdown.component';
+import { ErrorMsgComponent } from './error-msg/error-msg.component';
 
 export const MY_FORMATS = {
   parse: {
@@ -38,6 +39,7 @@ export const MY_FORMATS = {
     LogoComponent,
     DatePickerComponent,
     DropdownComponent,
+    ErrorMsgComponent,
   ],
   imports: [
     ReactiveFormsModule,
@@ -57,6 +59,13 @@ export const MY_FORMATS = {
 
     { provide: MAT_DATE_FORMATS, useValue: MY_FORMATS },
   ],
-  exports: [InputComponent, ButtonComponent, LogoComponent, DatePickerComponent, DropdownComponent],
+  exports: [
+    InputComponent,
+    ButtonComponent,
+    LogoComponent,
+    DatePickerComponent,
+    DropdownComponent,
+    ErrorMsgComponent,
+  ],
 })
 export class ElementsModule {}

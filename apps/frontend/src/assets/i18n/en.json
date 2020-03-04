@@ -11,6 +11,7 @@
   },
   "shared": {
     "submit": "Submit",
+    "next": "Next",
     "fields": {
       "email": {
         "label": "Email",
@@ -19,6 +20,10 @@
       "password": {
         "label": "Password",
         "placeholder": "Your password"
+      },
+      "passwordConfirm": {
+        "label": "Confirm password",
+        "placeholder": "Confirm you password"
       },
       "firstName": {
         "label": "First name",
@@ -42,6 +47,14 @@
     }
   },
   "errors": {
-    "required": "Required"
+    "required": "Required",
+    "email": "Wrong format of email address",
+    "minLength": "Has to be equal or longer than {{ value }} characters",
+    "maxLength": "Has to be equal or shorter than {{ value }} characters",
+    "smallLetterRequired": "At least one small letter is required",
+    "capitalLetterRequired": "At least one capital letter is required",
+    "numberRequired": "At least one number is required",
+    "specialCharacterRequired": "At least one special character is required",
+    "mustBeInThePast": "It has to be in the past"
   }
 }

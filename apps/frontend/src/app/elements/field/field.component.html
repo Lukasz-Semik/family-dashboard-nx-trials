@@ -7,4 +7,4 @@
   <div [class]="indicatorClassNames"></div>
 </div>
 
-<p class="error-msg" *ngIf="errorMsg">{{ errorMsg | translate }}</p>
+<app-error-msg [message]="errorMsg" [messageValue]="errorMsgValue"></app-error-msg>

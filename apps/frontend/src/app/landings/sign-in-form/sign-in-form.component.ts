@@ -21,13 +21,13 @@ export class SignInFormComponent implements OnInit {
     this.signInForm.valueChanges.subscribe(() => console.log('test'));
   }
 
-  onValueChange() {
+  private onValueChange() {
     if (this.isSubmitted) {
       this.isSubmitted = false;
     }
   }
 
-  onSubmit() {
+  public onSubmit() {
     this.isSubmitted = true;
   }
 }
