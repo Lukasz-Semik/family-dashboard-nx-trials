@@ -39,6 +39,11 @@ export class SignUpFormService {
         return;
       }
 
+      console.log({
+        accountDetailsForm,
+        personalDetailsForm,
+      });
+
       this.isLoading = true;
 
       setTimeout(() => {

@@ -6,6 +6,8 @@ import {
   UpdateDateColumn,
 } from 'typeorm';
 
+import { Gender } from '@family-dashboard/app-constants';
+
 @Entity()
 export class User {
   @PrimaryGeneratedColumn('uuid')
@@ -40,6 +42,19 @@ export class User {
     type: 'boolean',
   })
   public isVerified: boolean;
+
+  @Column({
+    type: 'varchar',
+    length: 255,
+  })
+  birthDate: string;
+
+  @Column({
+    type: 'varchar',
+    length: 64,
+    enum: Gender,
+  })
+  gender: string;
 
   @CreateDateColumn({
     type: 'timestamp',

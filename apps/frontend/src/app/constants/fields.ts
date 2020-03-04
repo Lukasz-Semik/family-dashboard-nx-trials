@@ -1,8 +1,4 @@
-export enum Gender {
-  Male = 'male',
-  Female = 'female',
-  Other = 'other',
-}
+import { Gender } from '@family-dashboard/app-constants';
 
 export const genders = [
   { value: Gender.Male, label: 'shared.fields.gender.male' },

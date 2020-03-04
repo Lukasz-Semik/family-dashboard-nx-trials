@@ -20,7 +20,8 @@
       "@app-fe/*": ["apps/frontend/src/app/*"],
       "@family-dashboard/app-types": ["libs/app-types/src/index.ts"],
       "@family-dashboard/app-api-routes": ["libs/app-api-routes/src/index.ts"],
-      "@family-dashboard/app-errors": ["libs/app-errors/src/index.ts"]
+      "@family-dashboard/app-errors": ["libs/app-errors/src/index.ts"],
+      "@family-dashboard/app-constants": ["libs/app-constants/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

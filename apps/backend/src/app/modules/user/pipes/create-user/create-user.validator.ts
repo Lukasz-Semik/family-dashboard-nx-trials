@@ -1,5 +1,6 @@
 import { IsEmail, IsNotEmpty, Matches } from 'class-validator';
 import { appErrors } from '@family-dashboard/app-errors';
+import { Gender } from '@family-dashboard/app-constants';
 
 export class CreateUserValidator {
   @IsNotEmpty({
@@ -27,4 +28,14 @@ export class CreateUserValidator {
     message: appErrors.base.required,
   })
   public readonly lastName: string;
+
+  @IsNotEmpty({
+    message: appErrors.base.required,
+  })
+  public readonly gender: Gender;
+
+  @IsNotEmpty({
+    message: appErrors.base.required,
+  })
+  public readonly birthDate: Date;
 }

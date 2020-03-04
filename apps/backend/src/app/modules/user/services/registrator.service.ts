@@ -24,7 +24,7 @@ export class RegistratorService {
   ) {}
 
   public async createUser(userData: UserSignUpPostOptions) {
-    const { firstName, lastName, email, password } = userData;
+    const { firstName, lastName, email, password, birthDate, gender } = userData;
 
     try {
       const newUser = new UserEntity();
@@ -36,6 +36,8 @@ export class RegistratorService {
         email,
         firstName,
         lastName,
+        birthDate,
+        gender,
         password: hashedPassword,
         isVerified: false,
       });
