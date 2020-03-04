@@ -1,0 +1,22 @@
+.wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.title {
+  margin-bottom: 3rem;
+  font-size: 5rem;
+}
+
+.button-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.button {
+  width: 30rem;
+  max-width: 95%;
+}

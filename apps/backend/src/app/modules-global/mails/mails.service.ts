@@ -7,7 +7,7 @@ import { EnvService } from '../env/env.service';
 @Injectable()
 export class MailsService {
   // TODO: create production version
-  private baseUrlDev = 'http://localhost:8080';
+  private baseUrlDev = 'http://localhost:4200';
   private apiKey = this.envService.get<string>('SENDGRID_API_KEY');
 
   constructor(private envService: EnvService) {}
@@ -34,7 +34,7 @@ export class MailsService {
         <h3>Hello ${userName}</h3>
         <p>
           Please confirm your account by visiting
-          <a href='${this.baseUrlDev}/confirm?token=${token}' target="_blank">
+          <a href='${this.baseUrlDev}/confirm-account?token=${token}' target="_blank">
             this page
           </a>
         </p>

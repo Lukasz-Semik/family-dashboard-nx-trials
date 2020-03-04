@@ -1,0 +1,16 @@
+<div class="wrapper">
+  <app-logo></app-logo>
+
+  <div>
+    <h2 class="title">{{ 'landings.signUp.thankYou' | translate }}</h2>
+
+    <div class="button-wrapper">
+      <div class="button">
+        <app-button
+          (click)="onClick()"
+          text="{{ 'landings.signUp.confirm' | translate }}"
+        ></app-button>
+      </div>
+    </div>
+  </div>
+</div>

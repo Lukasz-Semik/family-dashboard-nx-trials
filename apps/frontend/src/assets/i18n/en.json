@@ -6,7 +6,9 @@
       "register": "register here!"
     },
     "signUp": {
-      "title": "Sign Up"
+      "title": "Sign Up",
+      "thankYou": "Thank you for account creation!",
+      "confirm": "Confirm your account"
     }
   },
   "shared": {
