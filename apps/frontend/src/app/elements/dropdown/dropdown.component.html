@@ -1,4 +1,4 @@
-<div [formGroup]="form">
+<div [formGroup]="form" class="wrapper">
   <app-field
     [name]="name"
     [labelText]="labelText"
@@ -6,17 +6,19 @@
     [field]="field"
     [isFocused]="isHovered || isFocused"
   >
-    <input
-      class="input"
+    <mat-select
       [id]="name"
-      [name]="name"
+      [placeholder]="placeholderText"
+      [panelClass]="'dropdown-overrides'"
       [formControlName]="name"
-      [type]="inputType"
-      [placeholder]="placeholder"
       (mouseenter)="this.isHovered = true"
       (mouseleave)="this.isHovered = false"
       (focus)="this.isFocused = true"
       (blur)="this.isFocused = false"
-    />
+    >
+      <mat-option *ngFor="let item of items" [value]="item.value">
+        {{ item.label }}
+      </mat-option>
+    </mat-select>
   </app-field>
 </div>

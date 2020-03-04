@@ -1,0 +1,10 @@
+<div class="wrapper">
+  <label [class]="labelClassNames" [for]="name">{{ labelText }}</label>
+
+  <ng-content></ng-content>
+
+  <div class="separator"></div>
+  <div [class]="indicatorClassNames"></div>
+</div>
+
+<app-error-msg [message]="errorMsg" [messageValue]="errorMsgValue"></app-error-msg>

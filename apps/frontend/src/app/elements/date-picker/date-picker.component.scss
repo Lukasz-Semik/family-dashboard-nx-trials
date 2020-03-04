@@ -1,0 +1,20 @@
+@import 'apps/frontend/src/styles/_colors';
+@import 'apps/frontend/src/styles/_mixins';
+
+.input {
+  @include input-base();
+}
+
+.date-picker-overrides {
+  .mat-calendar-body-selected {
+    background: $orange-dark;
+  }
+
+  .mat-calendar-body-cell-content {
+    transition: background-color 0.3s ease;
+  }
+
+  .mat-calendar-body-cell-content:hover {
+    background-color: $orange-light !important;
+  }
+}

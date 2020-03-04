@@ -8,7 +8,7 @@ import { requiredValidator } from '@app-fe/helpers/validators';
   templateUrl: './sign-in-form.component.html',
   styleUrls: ['./sign-in-form.component.scss'],
 })
-export class SignInFormomponent implements OnInit {
+export class SignInFormComponent implements OnInit {
   public signInForm: FormGroup;
   public isSubmitted = false;
 
@@ -17,16 +17,17 @@ export class SignInFormomponent implements OnInit {
       email: new FormControl('', requiredValidator()),
       password: new FormControl('', requiredValidator()),
     });
+    // TODO: resolve it
     this.signInForm.valueChanges.subscribe(() => console.log('test'));
   }
 
-  onValueChange() {
+  private onValueChange() {
     if (this.isSubmitted) {
       this.isSubmitted = false;
     }
   }
 
-  onSubmit() {
+  public onSubmit() {
     this.isSubmitted = true;
   }
 }

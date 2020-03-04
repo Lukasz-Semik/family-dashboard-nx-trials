@@ -8,15 +8,19 @@
   >
     <input
       class="input"
+      type="text"
       [id]="name"
       [name]="name"
       [formControlName]="name"
-      [type]="inputType"
       [placeholder]="placeholder"
       (mouseenter)="this.isHovered = true"
       (mouseleave)="this.isHovered = false"
       (focus)="this.isFocused = true"
       (blur)="this.isFocused = false"
+      (click)="myDatepicker.open()"
+      [matDatepicker]="myDatepicker"
     />
+
+    <mat-datepicker panelClass="date-picker-overrides" #myDatepicker></mat-datepicker>
   </app-field>
 </div>

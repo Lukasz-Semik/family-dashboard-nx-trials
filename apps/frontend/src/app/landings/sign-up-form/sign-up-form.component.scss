@@ -1,0 +1,43 @@
+@import 'apps/frontend/src/styles/_colors';
+@import 'apps/frontend/src/styles/_variables';
+
+.wrapper {
+  position: relative;
+  padding: 8rem 0;
+}
+
+.field-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 3rem;
+}
+
+.field {
+  width: 30rem;
+  max-width: 90%;
+}
+
+.button-wrapper {
+  margin: 0 auto;
+  width: 30rem;
+  max-width: 90%;
+  margin-top: 5rem;
+  margin-bottom: 3rem;
+}
+
+.back-button {
+  position: absolute;
+  top: 3rem;
+  left: 3rem;
+  font-size: 1.5rem;
+  color: $blue-light;
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  &::before {
+    content: '<-';
+    display: inline;
+  }
+}

@@ -1,0 +1,7 @@
+@import 'apps/frontend/src/styles/_colors';
+
+.error-msg {
+  margin-top: 0.5rem;
+  font-size: 1.2rem;
+  color: $error-red;
+}

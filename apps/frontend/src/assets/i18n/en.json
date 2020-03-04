@@ -4,10 +4,15 @@
       "title": "Sign In",
       "noAccount": "Don't you have an account? You can",
       "register": "register here!"
+    },
+    "signUp": {
+      "title": "Sign Up"
     }
   },
   "shared": {
     "submit": "Submit",
+    "next": "Next",
+    "back": "Back",
     "fields": {
       "email": {
         "label": "Email",
@@ -16,10 +21,42 @@
       "password": {
         "label": "Password",
         "placeholder": "Your password"
+      },
+      "passwordConfirm": {
+        "label": "Confirm password",
+        "placeholder": "Confirm you password"
+      },
+      "firstName": {
+        "label": "First name",
+        "placeholder": "Your name"
+      },
+      "lastName": {
+        "label": "Last name",
+        "placeholder": "Your last name"
+      },
+      "birthDate": {
+        "label": "Date of birth",
+        "placeholder": "Your date of birth"
+      },
+      "gender": {
+        "label": "Gender",
+        "placeholder": "Your gender",
+        "male": "Male",
+        "female": "Female",
+        "other": "Other"
       }
     }
   },
   "errors": {
-    "required": "Required"
+    "required": "Required",
+    "emailWrongFormat": "Wrong format of email address",
+    "minLength": "Has to be equal or longer than {{ value }} characters",
+    "maxLength": "Has to be equal or shorter than {{ value }} characters",
+    "smallLetterRequired": "At least one small letter is required",
+    "capitalLetterRequired": "At least one capital letter is required",
+    "numberRequired": "At least one number is required",
+    "specialCharacterRequired": "At least one special character is required",
+    "mustBeInThePast": "It has to be in the past",
+    "passwordsMustBeEqual": "Passwords are not equal"
   }
 }

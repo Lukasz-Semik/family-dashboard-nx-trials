@@ -1,0 +1,127 @@
+<div>
+  <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()" class="wrapper">
+    <button
+      *ngIf="signUpService.step !== signUpService.personalDetailsStep"
+      class="back-button"
+      type="button"
+      (click)="signUpService.back()"
+    >
+      {{ 'shared.back' | translate }}
+    </button>
+
+    <div
+      *ngIf="signUpService.step === signUpService.personalDetailsStep"
+      formGroupName="personalDetails"
+    >
+      <div class="field-wrapper">
+        <div class="field">
+          <app-input
+            name="firstName"
+            [form]="personalDetailsForm"
+            [labelText]="'shared.fields.firstName.label' | translate"
+            [placeholderText]="'shared.fields.firstName.placeholder' | translate"
+            [isFormSubmitted]="isPersonalDetailsFormSubmitted"
+          ></app-input>
+        </div>
+      </div>
+
+      <div class="field-wrapper">
+        <div class="field">
+          <app-input
+            name="lastName"
+            [form]="personalDetailsForm"
+            [labelText]="'shared.fields.lastName.label' | translate"
+            [placeholderText]="'shared.fields.lastName.placeholder' | translate"
+            [isFormSubmitted]="isPersonalDetailsFormSubmitted"
+          ></app-input>
+        </div>
+      </div>
+
+      <div class="field-wrapper">
+        <div class="field">
+          <app-date-picker
+            [form]="personalDetailsForm"
+            name="birthDate"
+            [labelText]="'shared.fields.birthDate.label' | translate"
+            [placeholderText]="'shared.fields.birthDate.placeholder' | translate"
+            [isFormSubmitted]="isPersonalDetailsFormSubmitted"
+          ></app-date-picker>
+        </div>
+      </div>
+
+      <div class="field-wrapper">
+        <div class="field">
+          <app-dropdown
+            #genderDropdown
+            [form]="personalDetailsForm"
+            name="gender"
+            [labelText]="'shared.fields.gender.label' | translate"
+            [placeholderText]="'shared.fields.gender.placeholder' | translate"
+            [isFormSubmitted]="isPersonalDetailsFormSubmitted"
+            [items]="genders"
+          ></app-dropdown>
+        </div>
+      </div>
+    </div>
+
+    <div
+      *ngIf="signUpService.step !== signUpService.personalDetailsStep"
+      formGroupName="accountDetails"
+    >
+      <div class="field-wrapper">
+        <div class="field">
+          <app-input
+            name="email"
+            [form]="accountDetailsForm"
+            [labelText]="'shared.fields.email.label' | translate"
+            [placeholderText]="'shared.fields.email.placeholder' | translate"
+            [isFormSubmitted]="isAccountDetailsFormSubmitted"
+          ></app-input>
+        </div>
+      </div>
+
+      <div class="field-wrapper">
+        <div class="field">
+          <app-input
+            name="password"
+            type="password"
+            [form]="accountDetailsForm"
+            [labelText]="'shared.fields.password.label' | translate"
+            [placeholderText]="'shared.fields.password.placeholder' | translate"
+            [isFormSubmitted]="isAccountDetailsFormSubmitted"
+          ></app-input>
+        </div>
+      </div>
+
+      <div class="field-wrapper">
+        <div class="field">
+          <app-input
+            name="passwordConfirm"
+            type="password"
+            [form]="accountDetailsForm"
+            [labelText]="'shared.fields.passwordConfirm.label' | translate"
+            [placeholderText]="'shared.fields.passwordConfirm.placeholder' | translate"
+            [isFormSubmitted]="isAccountDetailsFormSubmitted"
+          ></app-input>
+
+          <app-error-msg
+            *ngIf="signUpService.showPasswordsError"
+            message="errors.passwordsMustBeEqual"
+          ></app-error-msg>
+        </div>
+      </div>
+    </div>
+
+    <div class="button-wrapper">
+      <app-button
+        [isDisabled]="signUpForm.pristine || signUpService.isLoading"
+        [isLoading]="signUpService.isLoading"
+        [text]="
+          signUpService.step === signUpService.personalDetailsStep
+            ? ('shared.next' | translate)
+            : ('shared.submit' | translate)
+        "
+      ></app-button>
+    </div>
+  </form>
+</div>

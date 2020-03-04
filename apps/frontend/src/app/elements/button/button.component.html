@@ -1,1 +1,9 @@
-<button class="button" [disabled]="isDisabled">{{ text }}</button>
+<button class="button" [disabled]="isDisabled">
+  <span *ngIf="!isLoading">
+    {{ text }}
+  </span>
+
+  <div *ngIf="isLoading" class="loader-wrapper">
+    <app-loader></app-loader>
+  </div>
+</button>

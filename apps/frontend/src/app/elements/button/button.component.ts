@@ -9,6 +9,7 @@ export class ButtonComponent {
   @Input() text: string;
   @Input() type: string | undefined;
   @Input() isDisabled: boolean | undefined;
+  @Input() isLoading: boolean | undefined;
 
   public get buttonType() {
     return this.type || 'submit';
