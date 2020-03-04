@@ -5,15 +5,7 @@
   @include input-base();
 }
 
-// .date-picker-override {
-//   .mat-calendar-body-selected {
-//     border-color: darkgreen;
-//   }
-// }
-
 .date-picker-overrides {
-  // background: red !important;
-
   .mat-calendar-body-selected {
     background: $orange-dark;
   }

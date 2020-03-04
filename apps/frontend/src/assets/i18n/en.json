@@ -12,6 +12,7 @@
   "shared": {
     "submit": "Submit",
     "next": "Next",
+    "back": "Back",
     "fields": {
       "email": {
         "label": "Email",

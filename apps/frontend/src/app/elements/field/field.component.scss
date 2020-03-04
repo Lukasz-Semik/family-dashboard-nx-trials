@@ -12,20 +12,6 @@
 .wrapper {
   position: relative;
   color: $grey-dark;
-
-  input {
-    display: block;
-    width: 100%;
-    padding: 0.5rem 0;
-    font-size: 2rem;
-    border: 0;
-    background-color: transparent;
-    outline: none;
-
-    &::placeholder {
-      font-weight: $fw-light;
-    }
-  }
 }
 
 .label {

@@ -11,6 +11,10 @@
       [placeholder]="placeholderText"
       [panelClass]="'dropdown-overrides'"
       [formControlName]="name"
+      (mouseenter)="this.isHovered = true"
+      (mouseleave)="this.isHovered = false"
+      (focus)="this.isFocused = true"
+      (blur)="this.isFocused = false"
     >
       <mat-option *ngFor="let item of items" [value]="item.value">
         {{ item.label }}
