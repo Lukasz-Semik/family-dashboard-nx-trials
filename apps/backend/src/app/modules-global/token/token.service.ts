@@ -36,6 +36,7 @@ export class TokenService {
     exp: number;
   }> {
     return new Promise((resolve, reject) => {
+      // @ts-ignore
       jwt.verify(token, this.secret, (err, decoded) => {
         if (err) {
           return reject(err);

@@ -9,7 +9,6 @@ import {
   Get,
   UseGuards,
   Req,
-  Request,
 } from '@nestjs/common';
 import { Response } from 'express';
 import { UserSignUpPostOptions, UserConfirmPatchOptions } from '@family-dashboard/app-types';
@@ -22,12 +21,15 @@ import { CreateUserPipe } from './pipes/create-user/create-user.pipe';
 import { ConfirmUserValidatorPipe } from './pipes/confirm-user/confirm-user.pipe';
 import { RegistratorService } from './services/registrator.service';
 import { AuthService } from '../auth/auth.service';
+import { JwtAuthGuard } from '../auth/jwt-auth.guard';
+import { UserService } from './services/user.service';
 
 @Controller(userRoutes.name)
 export class UserController {
   public constructor(
     private registratorService: RegistratorService,
-    private authService: AuthService
+    private authService: AuthService,
+    private userService: UserService
   ) {}
 
   @Post(userRoutes.signUp.name)
@@ -63,10 +65,14 @@ export class UserController {
   }
 
   @UseGuards(LocalAuthGuard)
-  @Post('sign-in')
-  async signIn(@Request() req) {
-    console.log('d');
-    return req.user;
-    // return this.authService.login(req.user);
+  @Post(userRoutes.signIn.name)
+  async signIn(@Req() req) {
+    return this.authService.login(req.user);
+  }
+
+  @UseGuards(JwtAuthGuard)
+  @Get(userRoutes.me.name)
+  async getProfile(@Req() req) {
+    return this.userService.getUserSerializedByEmail(req.user.email);
   }
 }
