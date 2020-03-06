@@ -24,6 +24,7 @@ export class RegistratorService {
   ) {}
 
   public async createUser(userData: UserSignUpPostOptions) {
+    // TODO: add check if exists
     const { firstName, lastName, email, password, birthDate, gender } = userData;
 
     try {
