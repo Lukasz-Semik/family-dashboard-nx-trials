@@ -6,9 +6,10 @@ import { DatabaseOrmModule } from './modules-global/database-orm/database-orm.mo
 import { UserModule } from './modules/user/user.module';
 import { MailsModule } from './modules-global/mails/mails.module';
 import { TokenModule } from './modules-global/token/token.module';
+import { AuthModule } from './modules/auth/auth.module';
 
 @Module({
-  imports: [EnvsModule, TokenModule, MailsModule, DatabaseOrmModule(), UserModule],
+  imports: [EnvsModule, TokenModule, MailsModule, DatabaseOrmModule(), UserModule, AuthModule],
   controllers: [AppController],
 })
 export class AppModule {}

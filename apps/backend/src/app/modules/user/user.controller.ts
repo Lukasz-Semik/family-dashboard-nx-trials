@@ -1,15 +1,36 @@
-import { Controller, Body, Post, Res, HttpStatus, UsePipes, Patch, Get } from '@nestjs/common';
+import {
+  Controller,
+  Body,
+  Post,
+  Res,
+  HttpStatus,
+  UsePipes,
+  Patch,
+  Get,
+  UseGuards,
+  Req,
+} from '@nestjs/common';
 import { Response } from 'express';
 import { UserSignUpPostOptions, UserConfirmPatchOptions } from '@family-dashboard/app-types';
 import { userRoutes } from '@family-dashboard/app-api-routes';
+import { AuthGuard } from '@nestjs/passport';
+
+import { LocalAuthGuard } from '@app-be/modules/auth/local-auth.guard';
 
 import { CreateUserPipe } from './pipes/create-user/create-user.pipe';
 import { ConfirmUserValidatorPipe } from './pipes/confirm-user/confirm-user.pipe';
 import { RegistratorService } from './services/registrator.service';
+import { AuthService } from '../auth/auth.service';
+import { JwtAuthGuard } from '../auth/jwt-auth.guard';
+import { UserService } from './services/user.service';
 
 @Controller(userRoutes.name)
 export class UserController {
-  public constructor(private registratorService: RegistratorService) {}
+  public constructor(
+    private registratorService: RegistratorService,
+    private authService: AuthService,
+    private userService: UserService
+  ) {}
 
   @Post(userRoutes.signUp.name)
   @UsePipes(CreateUserPipe)
@@ -41,5 +62,17 @@ export class UserController {
         user,
       },
     });
+  }
+
+  @UseGuards(LocalAuthGuard)
+  @Post(userRoutes.signIn.name)
+  async signIn(@Req() req) {
+    return this.authService.login(req.user);
+  }
+
+  @UseGuards(JwtAuthGuard)
+  @Get(userRoutes.me.name)
+  async getProfile(@Req() req) {
+    return this.userService.getUserSerializedByEmail(req.user.email);
   }
 }
