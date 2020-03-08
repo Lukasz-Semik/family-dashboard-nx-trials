@@ -1,4 +1,11 @@
+@import 'apps/frontend/src/styles/_colors';
+
 .wrapper {
   position: relative;
   height: 100%;
+}
+
+.loading-text {
+  font-size: 1.5rem;
+  color: $white;
 }

@@ -8,7 +8,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { LandingsModule } from './landings/landings.module';
 import { AppRoutingModule } from './app-routing/app-routing.module';
-import { ApiService } from './api/api.service';
+import { DashboardModule } from './dashboard/dashboard.module';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, '../assets/i18n/', '.json');
@@ -28,9 +28,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     }),
     AppRoutingModule,
     LandingsModule,
+    DashboardModule,
     BrowserAnimationsModule,
   ],
-  providers: [ApiService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

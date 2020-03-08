@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { LandingPageComponent } from '@app-fe/landings/landing-page/landing-page.component';
 import { SignUpPageComponent } from '@app-fe/landings/sign-up-page/sign-up-page.component';
 import { ConfirmAccountPageComponent } from '@app-fe/landings/confirm-account-page/confirm-account-page.component';
+import { UserDashboardPage } from '@app-fe/dashboard/user-dashboard-page/user-dashboard-page.component';
 
 const appRoutes: Routes = [
   { path: '', component: LandingPageComponent },
@@ -14,6 +15,10 @@ const appRoutes: Routes = [
   {
     path: 'confirm-account',
     component: ConfirmAccountPageComponent,
+  },
+  {
+    path: 'dashboard',
+    component: UserDashboardPage,
   },
 ];
 
