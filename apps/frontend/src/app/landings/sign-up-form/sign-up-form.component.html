@@ -20,7 +20,7 @@
             [form]="personalDetailsForm"
             [labelText]="'shared.fields.firstName.label' | translate"
             [placeholderText]="'shared.fields.firstName.placeholder' | translate"
-            [isFormSubmitted]="isPersonalDetailsFormSubmitted"
+            [isFormSubmitted]="signUpService.isPersonalDetailsFormSubmitted"
           ></app-input>
         </div>
       </div>
@@ -32,7 +32,7 @@
             [form]="personalDetailsForm"
             [labelText]="'shared.fields.lastName.label' | translate"
             [placeholderText]="'shared.fields.lastName.placeholder' | translate"
-            [isFormSubmitted]="isPersonalDetailsFormSubmitted"
+            [isFormSubmitted]="signUpService.isPersonalDetailsFormSubmitted"
           ></app-input>
         </div>
       </div>
@@ -44,7 +44,7 @@
             name="birthDate"
             [labelText]="'shared.fields.birthDate.label' | translate"
             [placeholderText]="'shared.fields.birthDate.placeholder' | translate"
-            [isFormSubmitted]="isPersonalDetailsFormSubmitted"
+            [isFormSubmitted]="signUpService.isPersonalDetailsFormSubmitted"
           ></app-date-picker>
         </div>
       </div>
@@ -57,7 +57,7 @@
             name="gender"
             [labelText]="'shared.fields.gender.label' | translate"
             [placeholderText]="'shared.fields.gender.placeholder' | translate"
-            [isFormSubmitted]="isPersonalDetailsFormSubmitted"
+            [isFormSubmitted]="signUpService.isPersonalDetailsFormSubmitted"
             [items]="genders"
           ></app-dropdown>
         </div>
@@ -75,7 +75,7 @@
             [form]="accountDetailsForm"
             [labelText]="'shared.fields.email.label' | translate"
             [placeholderText]="'shared.fields.email.placeholder' | translate"
-            [isFormSubmitted]="isAccountDetailsFormSubmitted"
+            [isFormSubmitted]="signUpService.isAccountDetailsFormSubmitted"
           ></app-input>
         </div>
       </div>
@@ -88,7 +88,7 @@
             [form]="accountDetailsForm"
             [labelText]="'shared.fields.password.label' | translate"
             [placeholderText]="'shared.fields.password.placeholder' | translate"
-            [isFormSubmitted]="isAccountDetailsFormSubmitted"
+            [isFormSubmitted]="signUpService.isAccountDetailsFormSubmitted"
           ></app-input>
         </div>
       </div>
@@ -101,7 +101,7 @@
             [form]="accountDetailsForm"
             [labelText]="'shared.fields.passwordConfirm.label' | translate"
             [placeholderText]="'shared.fields.passwordConfirm.placeholder' | translate"
-            [isFormSubmitted]="isAccountDetailsFormSubmitted"
+            [isFormSubmitted]="signUpService.isAccountDetailsFormSubmitted"
           ></app-input>
 
           <app-error-msg

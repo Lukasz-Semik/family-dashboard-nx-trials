@@ -1,1 +1,8 @@
-<h2>UserDashboard Page</h2>
+<app-loader
+  *ngIf="isLoading"
+  size="large"
+  [isFullScreen]="true"
+  [text]="'shared.loading' | translate"
+></app-loader>
+
+<h2>UserDashboard Page {{ user?.firstName }}</h2>
