@@ -1,9 +1,11 @@
 <div class="wrapper">
   <ngx-spinner
-    bdColor="#333"
-    size="small"
+    bdColor="rgba(100, 100, 100, 0.8)"
+    [size]="size || 'small'"
     color="#ff8a00"
     type="ball-grid-pulse"
-    [fullScreen]="false"
-  ></ngx-spinner>
+    [fullScreen]="isFullScreen"
+  >
+    <p class="loading-text" *ngIf="text">{{ text }}</p>
+  </ngx-spinner>
 </div>

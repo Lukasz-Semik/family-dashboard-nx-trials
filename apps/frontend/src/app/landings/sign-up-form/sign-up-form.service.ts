@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Gender } from '@family-dashboard/app-constants';
 import { Router } from '@angular/router';
 
-import { ApiService } from '@app-fe/api/api.service';
+import { UserApiService } from '@app-fe/api/user';
 
 enum Step {
   PresonalDetails = 'personal',
@@ -18,7 +18,7 @@ export class SignUpFormService {
   public showPasswordsError = false;
   public isLoading = false;
 
-  constructor(private apiService: ApiService, private routerService: Router) {}
+  constructor(private userApiService: UserApiService, private routerService: Router) {}
 
   public back() {
     this.step = Step.PresonalDetails;
@@ -48,7 +48,7 @@ export class SignUpFormService {
       this.isLoading = true;
 
       try {
-        await this.apiService.user.signUp({
+        await this.userApiService.signUp({
           password: accountDetailsForm.get('password').value as string,
           email: accountDetailsForm.get('email').value as string,
           firstName: personalDetailsForm.get('firstName').value as string,

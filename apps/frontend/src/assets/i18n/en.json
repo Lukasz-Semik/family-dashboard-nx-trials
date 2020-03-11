@@ -15,6 +15,7 @@
     "submit": "Submit",
     "next": "Next",
     "back": "Back",
+    "loading": "Loading...",
     "fields": {
       "email": {
         "label": "Email",

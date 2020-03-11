@@ -23,3 +23,9 @@ export interface UserSignUpPostOptions {
 export interface UserConfirmPatchOptions {
   token: string;
 }
+
+export interface UserSignInPostOptions {
+  // as local strategy is used (pssport), we pass email as username
+  username: string;
+  password: string;
+}

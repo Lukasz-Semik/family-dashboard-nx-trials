@@ -16,7 +16,7 @@ import { JwtStrategy } from './jwt.strategy';
     JwtModule.registerAsync({
       useFactory: async (envService: EnvService) => ({
         secret: envService.get('JWT_TOKEN') as string,
-        signOptions: { expiresIn: '180s' },
+        signOptions: { expiresIn: '14d' },
       }),
       inject: [EnvService],
     }),
