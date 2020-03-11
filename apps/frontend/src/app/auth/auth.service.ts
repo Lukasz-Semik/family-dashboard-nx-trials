@@ -2,10 +2,10 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { UserSignInPostOptions } from '@family-dashboard/app-types';
+import { UserData } from '@family-dashboard/app-types';
 
 import { getLocalStorageValue, setLocalStorageValue } from '@app-fe/helpers/localStorage';
 import { UserApiService } from '@app-fe/api/user'
-import { UserData } from '@family-dashboard/app-types';
 
 import { AccessTokenService } from './access-token.service';
 
@@ -40,6 +40,7 @@ export class AuthService {
         this.routerService.navigate(['/dashboard']);
       }
     } catch (err) {
+      // TODO: add notifications
       console.log(err);
     }
 
@@ -65,6 +66,7 @@ export class AuthService {
         return user;
       }
     } catch(err) {
+      // TODO: add notifications
       console.log(err)
     }
 

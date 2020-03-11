@@ -25,6 +25,7 @@ export class UserService {
         this.user = response?.data?.user;
       }
     } catch(err) {
+      // TODO: add notifications
       console.log(err)
     }
 
