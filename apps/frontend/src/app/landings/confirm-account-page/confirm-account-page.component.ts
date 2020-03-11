@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from '@app-fe/api/api.service';
+import { UserApiService } from '@app-fe/api/user';
 import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -12,7 +12,7 @@ export class ConfirmAccountPageComponent implements OnInit {
   private token: string;
 
   constructor(
-    private apiService: ApiService,
+    private userApiService: UserApiService,
     private routerService: Router,
     private routeService: ActivatedRoute
   ) {}
@@ -25,7 +25,7 @@ export class ConfirmAccountPageComponent implements OnInit {
 
   public async onClick() {
     try {
-      await this.apiService.user.confirm({ token: this.token });
+      await this.userApiService.confirm({ token: this.token });
       this.routerService.navigate(['/']);
     } catch (err) {
       // TODO: add notifications

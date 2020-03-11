@@ -1,14 +1,17 @@
 import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
 import {
   UserSignUpPostOptions,
   UserConfirmPatchOptions,
   UserSignInPostOptions,
   UserData,
+  AppResponse,
 } from '@family-dashboard/app-types';
 import { userRoutes } from '@family-dashboard/app-api-routes';
+
+import { AccessTokenService } from '@app-fe/auth/access-token.service';
+
 import { ApiBase } from '../api-base';
-import { AccessTokenService } from '@app-fe/services/access-token/access-token.service';
-import { Injectable } from '@angular/core';
 
 @Injectable({ providedIn: 'root' })
 export class UserApiService extends ApiBase {

@@ -1,16 +1,18 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { UserSignInPostOptions } from '@family-dashboard/app-types';
 
 import { getLocalStorageValue, setLocalStorageValue } from '@app-fe/helpers/localStorage';
-import { UserApiService } from '../api/user'
+import { UserApiService } from '@app-fe/api/user'
 
-import { AccessTokenService } from '../access-token/access-token.service';
-import { Router } from '@angular/router';
+import { AccessTokenService } from './access-token.service';
+
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
   private accessToken: string;
   public isLoading = false;
+  public isAuthenticated = false;
 
   constructor(
     private accessTokenService: AccessTokenService,
@@ -53,6 +55,7 @@ export class AuthService {
       
       if (response?.data?.user) {
         this.isLoading = false;
+        this.isAuthenticated = true;
 
         return true;
       }
@@ -60,6 +63,7 @@ export class AuthService {
       console.log(err)
     }
 
+    this.isAuthenticated = false;
     this.isLoading = false;
     return false
   }

@@ -1,11 +1,4 @@
 <div>
-  <app-loader
-    *ngIf="authService.isLoading"
-    size="large"
-    [isFullScreen]="true"
-    [text]="'shared.loading' | translate"
-  ></app-loader>
-
   <form [formGroup]="signInForm" (ngSubmit)="onSubmit()" class="wrapper">
     <div class="field-wrapper">
       <div class="field">
