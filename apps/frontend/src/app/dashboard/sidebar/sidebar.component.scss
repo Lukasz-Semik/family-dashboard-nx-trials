@@ -1,0 +1,17 @@
+@import 'apps/frontend/src/styles/_colors';
+
+.wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 28.5rem;
+  height: 100vh;
+  background: $orange-gradient-linear;
+  box-shadow: $shadow-black-big;
+}
+
+.logo-wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+}

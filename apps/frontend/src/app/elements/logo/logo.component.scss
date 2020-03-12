@@ -12,4 +12,12 @@
     letter-spacing: 1px;
     color: $black;
   }
+
+  &.is-small a {
+    font-size: 2.4rem;
+  }
+
+  &.is-static {
+    position: static;
+  }
 }

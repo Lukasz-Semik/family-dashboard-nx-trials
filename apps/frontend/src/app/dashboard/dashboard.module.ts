@@ -7,9 +7,10 @@ import { CommonModule } from '@angular/common';
 import { ElementsModule } from '@app-fe/elements/elements.module';
 import { UserDashboardPage } from './user-dashboard-page/user-dashboard-page.component';
 import { UserService } from './store/user.service';
+import { AppSidebar } from './sidebar/sidebar.component';
 
 @NgModule({
-  declarations: [UserDashboardPage],
+  declarations: [UserDashboardPage, AppSidebar],
   imports: [TranslateModule, ReactiveFormsModule, ElementsModule, RouterModule, CommonModule],
   providers: [UserService],
   exports: [UserDashboardPage],
