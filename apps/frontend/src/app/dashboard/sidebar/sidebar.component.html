@@ -1,0 +1,10 @@
+<div class="wrapper">
+  <div class="logo-wrapper">
+    <app-logo [isSmall]="true" [isStatic]="true" path="/dashboard"></app-logo>
+  </div>
+  <app-avatar [userName]="userName"></app-avatar>
+
+  <button class="btn-sign-out" (click)="onSignOut()">
+    <app-sidebar-item text="Sign out" src="/assets/icons/sign-out-alt-solid.svg"></app-sidebar-item>
+  </button>
+</div>

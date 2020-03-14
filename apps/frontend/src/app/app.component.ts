@@ -8,28 +8,12 @@ import { AuthService } from './auth/auth.service';
   selector: 'app-family-dashboard-root',
   templateUrl: './app.component.html',
 })
-export class AppComponent implements OnInit, OnDestroy {
-  constructor(
-    translate: TranslateService,
-    public authService: AuthService,
-    private routerService: Router
-  ) {
+export class AppComponent implements OnInit {
+  constructor(translate: TranslateService, public authService: AuthService) {
     translate.setDefaultLang('en');
-
-    this.authService.isAuthenticatedEmitter.subscribe(isAuthenticated => {
-      if (isAuthenticated) {
-        this.routerService.navigate(['/dashboard']);
-      } else {
-        this.routerService.navigate(['/']);
-      }
-    });
   }
 
   ngOnInit() {
-    this.authService.getIsSignedIn();
-  }
-
-  ngOnDestroy() {
-    this.authService.isAuthenticatedEmitter.unsubscribe();
+    this.authService.verifyIsSignedIn();
   }
 }

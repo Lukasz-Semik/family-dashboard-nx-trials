@@ -113,7 +113,7 @@
     </div>
 
     <div class="button-wrapper">
-      <app-button
+      <app-button-main
         [isDisabled]="signUpForm.pristine || signUpService.isLoading"
         [isLoading]="signUpService.isLoading"
         [text]="
@@ -121,7 +121,7 @@
             ? ('shared.next' | translate)
             : ('shared.submit' | translate)
         "
-      ></app-button>
+      ></app-button-main>
     </div>
   </form>
 </div>

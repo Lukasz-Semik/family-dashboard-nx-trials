@@ -5,4 +5,8 @@
   [text]="'shared.loading' | translate"
 ></app-loader>
 
-<h2>UserDashboard Page {{ user?.firstName }}</h2>
+<div class="wrapper">
+  <app-sidebar></app-sidebar>
+
+  <h2>UserDashboard {{ user?.firstName }}</h2>
+</div>

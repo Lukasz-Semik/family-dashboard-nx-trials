@@ -5,6 +5,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatSelectModule } from '@angular/material/select';
 import { DateAdapter, MAT_DATE_LOCALE, MAT_DATE_FORMATS } from '@angular/material/core';
+import { AvatarModule } from 'ngx-avatar';
 import {
   MatMomentDateModule,
   MomentDateAdapter,
@@ -15,12 +16,13 @@ import { RouterModule } from '@angular/router';
 
 import { FieldComponent } from './field/field.component';
 import { InputComponent } from './input/input.component';
-import { ButtonComponent } from './button/button.component';
+import { ButtonMainComponent } from './button-main/button-main.component';
 import { LogoComponent } from './logo/logo.component';
 import { DatePickerComponent } from './date-picker/date-picker.component';
 import { DropdownComponent } from './dropdown/dropdown.component';
 import { ErrorMsgComponent } from './error-msg/error-msg.component';
 import { LoaderComponent } from './loader/loader.component';
+import { AvatarComponent } from './avatar/avatar.component';
 
 export const MY_FORMATS = {
   parse: {
@@ -38,12 +40,13 @@ export const MY_FORMATS = {
   declarations: [
     FieldComponent,
     InputComponent,
-    ButtonComponent,
+    ButtonMainComponent,
     LogoComponent,
     DatePickerComponent,
     DropdownComponent,
     ErrorMsgComponent,
     LoaderComponent,
+    AvatarComponent,
   ],
   imports: [
     ReactiveFormsModule,
@@ -54,6 +57,7 @@ export const MY_FORMATS = {
     MatMomentDateModule,
     MatSelectModule,
     NgxSpinnerModule,
+    AvatarModule,
     RouterModule,
   ],
   providers: [
@@ -67,12 +71,13 @@ export const MY_FORMATS = {
   ],
   exports: [
     InputComponent,
-    ButtonComponent,
+    ButtonMainComponent,
     LogoComponent,
     DatePickerComponent,
     DropdownComponent,
     ErrorMsgComponent,
     LoaderComponent,
+    AvatarComponent,
   ],
 })
 export class ElementsModule {}
