@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { UserService } from '../store/user.service';
+import { UserService } from '@app-fe/store/user.service';
 
 @Component({
   selector: 'app-user-dashboard-page',

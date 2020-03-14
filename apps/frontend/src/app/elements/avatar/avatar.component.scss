@@ -1,0 +1,17 @@
+@import 'apps/frontend/src/styles/_colors';
+@import 'apps/frontend/src/styles/_variables';
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.user-name {
+  margin-top: 1rem;
+  text-align: center;
+  font-weight: $fw-bold;
+  font-size: 1.6rem;
+  color: $grey-darker;
+}

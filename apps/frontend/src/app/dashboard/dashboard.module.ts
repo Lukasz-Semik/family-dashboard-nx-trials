@@ -3,16 +3,23 @@ import { TranslateModule } from '@ngx-translate/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { AngularSvgIconModule } from 'angular-svg-icon';
 
 import { ElementsModule } from '@app-fe/elements/elements.module';
 import { UserDashboardPage } from './user-dashboard-page/user-dashboard-page.component';
-import { UserService } from './store/user.service';
-import { AppSidebar } from './sidebar/sidebar.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
+import { SidebarItemComponent } from './sidebar-item/sidebar-item.component';
 
 @NgModule({
-  declarations: [UserDashboardPage, AppSidebar],
-  imports: [TranslateModule, ReactiveFormsModule, ElementsModule, RouterModule, CommonModule],
-  providers: [UserService],
+  declarations: [UserDashboardPage, SidebarComponent, SidebarItemComponent],
+  imports: [
+    TranslateModule,
+    ReactiveFormsModule,
+    ElementsModule,
+    RouterModule,
+    CommonModule,
+    AngularSvgIconModule.forRoot(),
+  ],
   exports: [UserDashboardPage],
 })
 export class DashboardModule {}

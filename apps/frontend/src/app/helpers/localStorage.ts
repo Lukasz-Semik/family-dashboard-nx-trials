@@ -11,3 +11,5 @@ export const getLocalStorageValue = (key: string) => {
 
   return value ? JSON.parse(value) : null;
 };
+
+export const APP_TOKEN_KEY = 'family_dashboard_token';

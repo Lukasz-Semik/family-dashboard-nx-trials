@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { Subject } from 'rxjs';
 import { UserSignInPostOptions } from '@family-dashboard/app-types';
 import { UserData } from '@family-dashboard/app-types';
 
 import { getLocalStorageValue, setLocalStorageValue } from '@app-fe/helpers/localStorage';
 import { UserApiService } from '@app-fe/api/user'
+import { APP_TOKEN_KEY } from '@app-fe/helpers/localStorage';
 
 import { AccessTokenService } from './access-token.service';
 
@@ -13,7 +13,6 @@ import { AccessTokenService } from './access-token.service';
 export class AuthService {
   private accessToken: string;
   public isLoading = false;
-  public isAuthenticatedEmitter = new Subject<boolean>();
   public user: UserData;
 
   constructor(
@@ -21,7 +20,7 @@ export class AuthService {
     private userApiService: UserApiService,
     private routerService: Router,
   ) {
-    const token = getLocalStorageValue('family_dashboard_token');
+    const token = getLocalStorageValue(APP_TOKEN_KEY);
     accessTokenService.tokenEmitter.subscribe(tokenValue => (this.accessToken = tokenValue));
     this.accessTokenService.tokenEmitter.next(token);
   }
@@ -33,9 +32,8 @@ export class AuthService {
       const response = await this.userApiService.signIn(values);
 
       if (response.accessToken) {
-        setLocalStorageValue('family_dashboard_token', response.accessToken);
+        setLocalStorageValue(APP_TOKEN_KEY, response.accessToken);
         this.accessTokenService.tokenEmitter.next(response.accessToken);
-        this.isAuthenticatedEmitter.next(true);
 
         this.routerService.navigate(['/dashboard']);
       }
@@ -47,9 +45,10 @@ export class AuthService {
     this.isLoading = false;
   }
 
-  public async getIsSignedIn() {
+  public async verifyIsSignedIn() {
     if (!this.accessToken) {
-      return null;
+      this.routerService.navigate(['/']);
+      return;
     }
 
     this.isLoading = true;
@@ -57,21 +56,21 @@ export class AuthService {
     try {
       const response = await this.userApiService.me();
       const user = response?.data?.user;
-      
+      console.log(user);
       if (user) {
         this.user = user;
+        this.routerService.navigate(['/dashboard']);
         this.isLoading = false;
-        this.isAuthenticatedEmitter.next(true);
 
-        return user;
+        return;
       }
     } catch(err) {
       // TODO: add notifications
       console.log(err)
     }
 
-    this.isAuthenticatedEmitter.next(false);
+    this.routerService.navigate(['/']);
     this.isLoading = false;
-    return null;
+    return;
   }
 }

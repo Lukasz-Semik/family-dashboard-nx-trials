@@ -2190,6 +2190,11 @@ alphanum-sort@^1.0.0:
   resolved "https://registry.yarnpkg.com/alphanum-sort/-/alphanum-sort-1.0.2.tgz#97a1119649b211ad33691d9f9f486a8ec9fbe0a3"
   integrity sha1-l6ERlkmyEa0zaR2fn0hqjsn74KM=
 
+angular-svg-icon@^9.1.0:
+  version "9.1.0"
+  resolved "https://registry.yarnpkg.com/angular-svg-icon/-/angular-svg-icon-9.1.0.tgz#908f147a32e96e10c9bbde57f2c2b3aa3c52c4ee"
+  integrity sha512-oXebdAkvdHNNJY/mgcjPHqOf3eyc1GbEVz623q2sX0jplB6ZrwgGTkkuOdkIhjkvKWTTgMDcn/445EWlufhdfg==
+
 ansi-colors@4.1.1:
   version "4.1.1"
   resolved "https://registry.yarnpkg.com/ansi-colors/-/ansi-colors-4.1.1.tgz#cbb9ae256bf750af1eab344f229aa27fe94ba348"
@@ -6302,6 +6307,11 @@ is-resolvable@^1.0.0:
   resolved "https://registry.yarnpkg.com/is-resolvable/-/is-resolvable-1.1.0.tgz#fb18f87ce1feb925169c9a407c19318a3206ed88"
   integrity sha512-qgDYXFSR5WvEfuS5dMj6oTMEbrrSaM0CrFk2Yiq/gXnBvD9pMa2jGXxyhGLfvhZpuMZe18CJpFxAt3CRs42NMg==
 
+is-retina@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/is-retina/-/is-retina-1.0.3.tgz#d7401b286bea2ae37f62477588de504d0b8647e3"
+  integrity sha1-10AbKGvqKuN/Ykd1iN5QTQuGR+M=
+
 is-stream@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/is-stream/-/is-stream-1.1.0.tgz#12d4a3dd4e68e0b79ceb8dbc84173ae80d91ca44"
@@ -7969,6 +7979,15 @@ next-tick@~1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/next-tick/-/next-tick-1.0.0.tgz#ca86d1fe8828169b0120208e3dc8424b9db8342c"
   integrity sha1-yobR/ogoFpsBICCOPchCS524NCw=
+
+ngx-avatar@^3.7.0:
+  version "3.7.0"
+  resolved "https://registry.yarnpkg.com/ngx-avatar/-/ngx-avatar-3.7.0.tgz#43857ad017af42ed0ba26d0dafc45948285a8af7"
+  integrity sha512-M/fBymbjCN/iyEQ6hJc1N5JsYJEM7riIKN7KsTjLN83MzhKzffaz0BDea1iqVQQSqwYObF5HWJKm1sBLwuigHQ==
+  dependencies:
+    is-retina "^1.0.3"
+    ts-md5 "^1.2.4"
+    tslib "^1.9.0"
 
 ngx-spinner@^8.1.0:
   version "8.1.0"
@@ -11477,6 +11496,11 @@ ts-loader@5.4.5, ts-loader@^5.3.1:
     loader-utils "^1.0.2"
     micromatch "^3.1.4"
     semver "^5.0.1"
+
+ts-md5@^1.2.4:
+  version "1.2.7"
+  resolved "https://registry.yarnpkg.com/ts-md5/-/ts-md5-1.2.7.tgz#b76471fc2fd38f0502441f6c3b9494ed04537401"
+  integrity sha512-emODogvKGWi1KO1l9c6YxLMBn6CEH3VrH5mVPIyOtxBG52BvV4jP3GWz6bOZCz61nLgBc3ffQYE4+EHfCD+V7w==
 
 ts-node@~7.0.0:
   version "7.0.1"

@@ -5,7 +5,9 @@ import { AuthService } from '@app-fe/auth/auth.service';
 import { UserApiService } from '@app-fe/api/user';
 
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class UserService {
   public user: UserData;
   public isLoading = false;

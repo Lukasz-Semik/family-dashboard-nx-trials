@@ -15,7 +15,6 @@ export class LogoComponent {
   }
 
   public get classNames() {
-    console.log(this.isSmall);
     return {
       logo: true,
       'is-small': this.isSmall,
