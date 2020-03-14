@@ -56,7 +56,7 @@ export class AuthService {
     try {
       const response = await this.userApiService.me();
       const user = response?.data?.user;
-      console.log(user);
+
       if (user) {
         this.user = user;
         this.routerService.navigate(['/dashboard']);
