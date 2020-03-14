@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 import { setLocalStorageValue, APP_TOKEN_KEY } from '@app-fe/helpers/localStorage';
 import { Router } from '@angular/router';
-import { UserService } from '../store/user.service';
+import { UserService } from '../../store/user.service';
 
 @Component({
   selector: 'app-sidebar',
