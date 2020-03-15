@@ -13,15 +13,14 @@ import {
 import { Response } from 'express';
 import { UserSignUpPostOptions, UserConfirmPatchOptions } from '@family-dashboard/app-types';
 import { userRoutes } from '@family-dashboard/app-api-routes';
-import { AuthGuard } from '@nestjs/passport';
 
-import { LocalAuthGuard } from '@app-be/modules/auth/local-auth.guard';
+import { LocalAuthGuard } from '@app-be/modules/auth/guards/local-auth.guard';
 
 import { CreateUserPipe } from './pipes/create-user/create-user.pipe';
 import { ConfirmUserValidatorPipe } from './pipes/confirm-user/confirm-user.pipe';
 import { RegistratorService } from './services/registrator.service';
 import { AuthService } from '../auth/auth.service';
-import { JwtAuthGuard } from '../auth/jwt-auth.guard';
+import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 import { UserService } from './services/user.service';
 
 @Controller(userRoutes.name)
