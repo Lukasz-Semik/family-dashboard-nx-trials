@@ -17,6 +17,7 @@ export class MailsService {
   }
 
   private sendEmail(msg: MailData) {
+    console.log({ msg });
     if (!this.envService.isTest()) {
       // tslint:disable no-console
       sgMail.send(msg).catch(err => console.log(err));

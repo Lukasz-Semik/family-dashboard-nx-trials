@@ -6,7 +6,8 @@ import { throwError } from '@app-be/helpers/errors';
 import { BodyValidatorPipe } from '@app-be/pipes/body-validator.pipe';
 
 import { CreateUserValidator } from './create-user.validator';
-import { UserService } from '../../services/user.service';
+import { User as UserEntity } from '@app-be/entities';
+import { getRepository } from 'typeorm';
 
 interface CreateUserErrors {
   requestBody?: string[];
@@ -21,7 +22,9 @@ export class CreateUserPipe extends BodyValidatorPipe<
   CreateUserErrors,
   typeof CreateUserValidator
 > {
-  constructor(private userService: UserService) {
+  private userRepo = getRepository(UserEntity);
+
+  constructor() {
     super();
   }
 
@@ -36,7 +39,7 @@ export class CreateUserPipe extends BodyValidatorPipe<
   }
 
   private async validateEmailTaken(email?: string) {
-    const existingUser = await this.userService.repo.findOne({ email });
+    const existingUser = await this.userRepo.findOne({ email });
 
     if (existingUser) {
       throwError(HttpStatus.CONFLICT, {

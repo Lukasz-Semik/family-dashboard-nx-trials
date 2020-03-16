@@ -12,4 +12,7 @@ export const appErrors = {
   password: {
     wrongFormat: 'errors.password.wrongFormat',
   },
+  user: {
+    alreadyHasFamily: 'errors.user.alreadyHasFamily',
+  },
 };

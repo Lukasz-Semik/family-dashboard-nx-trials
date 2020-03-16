@@ -6,8 +6,17 @@ import { UserModule } from './modules/user/user.module';
 import { MailsModule } from './modules-global/mails/mails.module';
 import { TokenModule } from './modules-global/token/token.module';
 import { AuthModule } from './modules/auth/auth.module';
+import { FamilyModule } from './modules/family/family.module';
 
 @Module({
-  imports: [EnvsModule, TokenModule, MailsModule, DatabaseOrmModule(), UserModule, AuthModule],
+  imports: [
+    EnvsModule,
+    TokenModule,
+    MailsModule,
+    DatabaseOrmModule(),
+    UserModule,
+    FamilyModule,
+    AuthModule,
+  ],
 })
 export class AppModule {}

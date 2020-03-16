@@ -58,6 +58,11 @@ export class User {
   })
   gender: string;
 
+  @Column({
+    type: 'boolean',
+  })
+  public isFamilyHead: boolean;
+
   @ManyToOne(type => Family, family => family.users)
   family: Family;
 

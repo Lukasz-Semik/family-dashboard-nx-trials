@@ -20,7 +20,6 @@ export class RegistratorService {
   ) {}
 
   public async createUser(userData: UserSignUpPostOptions) {
-    // TODO: add check if exists
     const { firstName, lastName, email, password, birthDate, gender } = userData;
 
     try {
@@ -37,6 +36,7 @@ export class RegistratorService {
         gender,
         password: hashedPassword,
         isVerified: false,
+        isFamilyHead: false,
       });
 
       const token = this.tokenService.create(
@@ -55,7 +55,7 @@ export class RegistratorService {
         );
       }
 
-      return this.userService.serializeUser(createdUser);
+      return this.userService.serialize(createdUser);
     } catch (err) {
       throwError(HttpStatus.INTERNAL_SERVER_ERROR, err);
     }
@@ -80,7 +80,7 @@ export class RegistratorService {
         isVerified: true,
       });
 
-      return this.userService.serializeUser(confirmedUser);
+      return this.userService.serialize(confirmedUser);
     } catch (err) {
       throwError(HttpStatus.INTERNAL_SERVER_ERROR, err);
     }

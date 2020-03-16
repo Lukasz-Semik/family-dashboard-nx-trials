@@ -72,7 +72,7 @@ export class UserController {
   @UseGuards(JwtAuthGuard)
   @Get(userRoutes.me.name)
   async getProfile(@Req() req, @Res() res) {
-    const user = await this.userService.getUserSerializedByEmail(req.user.email);
+    const user = await this.userService.getSerializedByEmail(req.user.email);
 
     return res.status(HttpStatus.OK).json({
       msg: 'User is signed in',
