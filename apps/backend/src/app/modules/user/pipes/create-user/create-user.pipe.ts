@@ -1,13 +1,13 @@
 import { HttpStatus } from '@nestjs/common';
-import { getRepository, Connection } from 'typeorm';
 import { UserSignUpPostOptions } from '@family-dashboard/app-types';
 import { appErrors } from '@family-dashboard/app-errors';
 
-import { User } from '@app-be/entities';
 import { throwError } from '@app-be/helpers/errors';
 import { BodyValidatorPipe } from '@app-be/pipes/body-validator.pipe';
 
 import { CreateUserValidator } from './create-user.validator';
+import { User as UserEntity } from '@app-be/entities';
+import { getRepository } from 'typeorm';
 
 interface CreateUserErrors {
   requestBody?: string[];
@@ -22,9 +22,9 @@ export class CreateUserPipe extends BodyValidatorPipe<
   CreateUserErrors,
   typeof CreateUserValidator
 > {
-  private userRepo = getRepository(User);
+  private userRepo = getRepository(UserEntity);
 
-  constructor(private readonly connection: Connection) {
+  constructor() {
     super();
   }
 

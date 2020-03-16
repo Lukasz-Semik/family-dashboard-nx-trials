@@ -1,24 +1,46 @@
 import { Injectable } from '@nestjs/common';
 import { getRepository, Connection } from 'typeorm';
+import { omit } from 'lodash';
+import { Gender } from '@family-dashboard/app-constants';
+import { UserData } from '@family-dashboard/app-types';
 
 import { User as UserEntity } from '@app-be/entities';
-import { UserSerializatorService } from '@app-be/serializators/user/userSerializator.service';
+import { ItemService } from '@app-be/types/item-service.type';
 
 @Injectable()
-export class UserService {
-  private userRepo = getRepository(UserEntity);
+export class UserService implements ItemService<UserEntity, UserData> {
+  protected repository = getRepository(UserEntity);
 
-  constructor(private connection: Connection, private userSerializator: UserSerializatorService) {}
+  constructor(private connection: Connection) {}
 
-  public async getUserByEmail(email: string) {
-    const user = await this.userRepo.findOne({ email });
+  public get repo() {
+    return this.repository;
+  }
+
+  public createNewEntity() {
+    return new UserEntity();
+  }
+
+  public async getByEmail(email: string) {
+    const user = await this.repo.findOne({ email }, { relations: ['family'] });
 
     return user;
   }
 
-  public async getUserSerializedByEmail(email) {
-    const user = await this.getUserByEmail(email);
+  public async getSerializedByEmail(email) {
+    const user = await this.getByEmail(email);
 
-    return this.userSerializator.serializeUser(user);
+    return this.serialize(user);
+  }
+
+  public serialize(user: UserEntity) {
+    const { firstName, lastName, gender } = user;
+    const genderParsed = gender as Gender;
+
+    return {
+      ...omit(user, ['gender', 'password']),
+      fullName: `${firstName} ${lastName}`,
+      gender: genderParsed,
+    };
   }
 }

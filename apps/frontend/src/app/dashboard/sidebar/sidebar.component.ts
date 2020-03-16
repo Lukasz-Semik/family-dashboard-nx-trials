@@ -18,6 +18,6 @@ export class SidebarComponent {
   }
 
   public get userName() {
-    return this.userService.user.fullName;
+    return this.userService.user?.fullName;
   }
 }

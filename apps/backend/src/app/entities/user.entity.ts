@@ -4,8 +4,11 @@ import {
   PrimaryGeneratedColumn,
   CreateDateColumn,
   UpdateDateColumn,
+  ManyToOne,
 } from 'typeorm';
 import { Gender } from '@family-dashboard/app-constants';
+
+import { Family } from './family.entity';
 
 @Entity()
 export class User {
@@ -54,6 +57,14 @@ export class User {
     enum: Gender,
   })
   gender: string;
+
+  @Column({
+    type: 'boolean',
+  })
+  public isFamilyHead: boolean;
+
+  @ManyToOne(type => Family, family => family.users)
+  family: Family;
 
   @CreateDateColumn({
     type: 'timestamp',

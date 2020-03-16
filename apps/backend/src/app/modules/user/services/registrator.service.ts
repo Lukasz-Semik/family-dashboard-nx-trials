@@ -1,38 +1,33 @@
 import { Injectable, HttpStatus } from '@nestjs/common';
-import { getRepository, Connection } from 'typeorm';
 import { hash } from 'bcryptjs';
 import { isEmpty } from 'lodash';
 import { UserSignUpPostOptions, UserConfirmPatchOptions } from '@family-dashboard/app-types';
 import { appErrors } from '@family-dashboard/app-errors';
 
-import { User as UserEntity } from '@app-be/entities';
-import { UserSerializatorService } from '@app-be/serializators/user/userSerializator.service';
 import { throwError } from '@app-be/helpers/errors';
 import { TokenService } from '@app-be/modules-global/token/token.service';
 import { MailsService } from '@app-be/modules-global/mails/mails.service';
 import { TokenExpiration } from '@app-be/modules-global/token/token.constants';
 
+import { UserService } from './user.service';
+
 @Injectable()
 export class RegistratorService {
-  private userRepo = getRepository(UserEntity);
-
   constructor(
-    private connection: Connection,
     private mailsService: MailsService,
     private tokenService: TokenService,
-    private userSerializator: UserSerializatorService
+    private userService: UserService
   ) {}
 
   public async createUser(userData: UserSignUpPostOptions) {
-    // TODO: add check if exists
     const { firstName, lastName, email, password, birthDate, gender } = userData;
 
     try {
-      const newUser = new UserEntity();
+      const newUser = this.userService.createNewEntity();
 
       const hashedPassword = await hash(password, 10);
 
-      const createdUser = await this.userRepo.save({
+      const createdUser = await this.userService.repo.save({
         ...newUser,
         email,
         firstName,
@@ -41,6 +36,7 @@ export class RegistratorService {
         gender,
         password: hashedPassword,
         isVerified: false,
+        isFamilyHead: false,
       });
 
       const token = this.tokenService.create(
@@ -59,7 +55,7 @@ export class RegistratorService {
         );
       }
 
-      return this.userSerializator.serializeUser(createdUser);
+      return this.userService.serialize(createdUser);
     } catch (err) {
       throwError(HttpStatus.INTERNAL_SERVER_ERROR, err);
     }
@@ -69,7 +65,7 @@ export class RegistratorService {
     try {
       const { email } = await this.tokenService.decode(body.token);
 
-      const existingUser = await this.userRepo.findOne({ email });
+      const existingUser = await this.userService.repo.findOne({ email });
 
       if (isEmpty(existingUser)) {
         throwError(HttpStatus.NOT_FOUND, { email: [appErrors.email.notExist] });
@@ -79,9 +75,12 @@ export class RegistratorService {
         throwError(HttpStatus.CONFLICT, { email: [appErrors.email.alreadyVerified] });
       }
 
-      const confirmedUser = await this.userRepo.save({ ...existingUser, isVerified: true });
+      const confirmedUser = await this.userService.repo.save({
+        ...existingUser,
+        isVerified: true,
+      });
 
-      return this.userSerializator.serializeUser(confirmedUser);
+      return this.userService.serialize(confirmedUser);
     } catch (err) {
       throwError(HttpStatus.INTERNAL_SERVER_ERROR, err);
     }
