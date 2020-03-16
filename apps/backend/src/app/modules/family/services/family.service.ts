@@ -1,4 +1,4 @@
-import { Injectable, HttpStatus } from '@nestjs/common';
+import { Injectable, HttpStatus, Post } from '@nestjs/common';
 import { getRepository, Connection } from 'typeorm';
 import { isEmpty } from 'lodash';
 import { FamilyCreatePostOptions, FamilyData } from '@family-dashboard/app-types';
@@ -24,28 +24,32 @@ export class FamilyService implements ItemService<FamilyEntity, FamilyData> {
   }
 
   public async createItem(body: FamilyCreatePostOptions, email) {
-    const { name } = body;
+    try {
+      const { name } = body;
 
-    const user = await this.userService.getByEmail(email);
+      const user = await this.userService.getByEmail(email);
 
-    if (!isEmpty(user.family)) {
-      return throwError(HttpStatus.CONFLICT, { user: appErrors.user.alreadyHasFamily });
+      if (!isEmpty(user.family)) {
+        return throwError(HttpStatus.CONFLICT, { user: appErrors.user.alreadyHasFamily });
+      }
+
+      const newFamily = this.createNewEntity();
+
+      const updatedUser = await this.userService.repo.save({
+        ...user,
+        isFamilyHead: true,
+      });
+
+      const createdFamily = await this.repo.save({
+        ...newFamily,
+        users: [updatedUser],
+        name,
+      });
+
+      return this.serialize(createdFamily);
+    } catch (err) {
+      throwError(HttpStatus.INTERNAL_SERVER_ERROR, err);
     }
-
-    const newFamily = this.createNewEntity();
-
-    const updatedUser = await this.userService.repo.save({
-      ...user,
-      isFamilyHead: true,
-    });
-
-    const createdFamily = await this.repo.save({
-      ...newFamily,
-      users: [updatedUser],
-      name,
-    });
-
-    return this.serialize(createdFamily);
   }
 
   public serialize(family: FamilyEntity) {
