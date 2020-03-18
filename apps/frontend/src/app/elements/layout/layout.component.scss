@@ -1,0 +1,18 @@
+@import 'apps/frontend/src/styles/_variables';
+@import 'apps/frontend/src/styles/_colors';
+
+.wrapper {
+  padding: 3rem;
+}
+
+.title {
+  margin-bottom: 0.5rem;
+  font-size: 3rem;
+}
+
+.description {
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  font-weight: $fw-regular;
+  color: $grey-darker;
+}

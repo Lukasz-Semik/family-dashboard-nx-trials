@@ -22,7 +22,9 @@ import { DatePickerComponent } from './date-picker/date-picker.component';
 import { DropdownComponent } from './dropdown/dropdown.component';
 import { ErrorMsgComponent } from './error-msg/error-msg.component';
 import { LoaderComponent } from './loader/loader.component';
+import { LoaderFullScreenComponent } from './loader-full-screen/loader-full-screen.component';
 import { AvatarComponent } from './avatar/avatar.component';
+import { LayoutComponent } from './layout/layout.component';
 
 export const MY_FORMATS = {
   parse: {
@@ -46,7 +48,9 @@ export const MY_FORMATS = {
     DropdownComponent,
     ErrorMsgComponent,
     LoaderComponent,
+    LoaderFullScreenComponent,
     AvatarComponent,
+    LayoutComponent,
   ],
   imports: [
     ReactiveFormsModule,
@@ -77,7 +81,9 @@ export const MY_FORMATS = {
     DropdownComponent,
     ErrorMsgComponent,
     LoaderComponent,
+    LoaderFullScreenComponent,
     AvatarComponent,
+    LayoutComponent,
   ],
 })
 export class ElementsModule {}

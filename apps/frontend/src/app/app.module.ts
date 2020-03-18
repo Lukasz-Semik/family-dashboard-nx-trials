@@ -9,7 +9,9 @@ import { AppComponent } from './app.component';
 import { LandingsModule } from './landings/landings.module';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { DashboardModule } from './dashboard/dashboard.module';
+import { ShoppingListMdoule } from './shopping-list/shopping-list.module';
 import { ElementsModule } from './elements/elements.module';
+import { FamilyModule } from './family/family.module';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, '../assets/i18n/', '.json');
@@ -31,6 +33,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     AppRoutingModule,
     LandingsModule,
     DashboardModule,
+    ShoppingListMdoule,
+    FamilyModule,
     BrowserAnimationsModule,
   ],
   bootstrap: [AppComponent],

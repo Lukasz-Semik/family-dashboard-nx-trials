@@ -1,9 +1,24 @@
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
+
+import { getLocalStorageValue, setLocalStorageValue } from '@app-fe/helpers/localStorage';
+import { APP_TOKEN_KEY } from '@app-fe/helpers/localStorage';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AccessTokenService {
-  public tokenEmitter = new Subject<string>();
+  private token: string;
+
+  constructor() {
+    this.token = getLocalStorageValue(APP_TOKEN_KEY);
+  }
+
+  public get() {
+    return this.token;
+  }
+
+  public set(token: string) {
+    setLocalStorageValue(APP_TOKEN_KEY, token);
+    this.token = token;
+  }
 }

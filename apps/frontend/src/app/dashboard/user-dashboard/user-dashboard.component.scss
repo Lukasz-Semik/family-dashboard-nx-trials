@@ -1,0 +1,18 @@
+@import 'apps/frontend/src/styles/_mixins';
+@import 'apps/frontend/src/styles/_variables';
+@import 'apps/frontend/src/styles/_colors';
+
+.card {
+  @include card-small-shadow(true);
+}
+
+.family-wrapper {
+  width: 50rem;
+  padding: 2rem;
+}
+
+.family-title {
+  font-size: 1.6rem;
+  text-align: center;
+  color: $orange-dark;
+}

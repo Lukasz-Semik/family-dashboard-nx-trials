@@ -12,7 +12,7 @@ import { TokenExpiration } from '@app-be/modules-global/token/token.constants';
 import { UserService } from './user.service';
 
 @Injectable()
-export class RegistratorService {
+export class RegistrationService {
   constructor(
     private mailsService: MailsService,
     private tokenService: TokenService,
