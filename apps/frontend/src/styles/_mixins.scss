@@ -15,6 +15,21 @@
   }
 }
 
+@mixin card-small-shadow($change-shadow: false) {
+  background-color: $white;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  box-shadow: $shadow-black-extra-small;
+  transition: box-shadow 0.3s ease;
+
+  @if ($change-shadow) {
+    &:hover,
+    &:focus {
+      box-shadow: $shadow-blue-extra-small;
+    }
+  }
+}
+
 @mixin input-base() {
   display: block;
   width: 100%;

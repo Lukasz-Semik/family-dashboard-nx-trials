@@ -1,0 +1,37 @@
+@import 'apps/frontend/src/styles/_mixins';
+@import 'apps/frontend/src/styles/_colors';
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.card {
+  @include card-small-shadow(true);
+  padding: 8rem;
+}
+
+.title {
+  margin-bottom: 2rem;
+  font-size: 3rem;
+  text-align: center;
+  color: $orange-dark;
+}
+
+.description {
+  margin-bottom: 3rem;
+  font-size: 1.5rem;
+  text-align: center;
+  color: $grey-dark;
+}
+
+.button-wrapper {
+  margin: 0 auto;
+  width: 25rem;
+}
+
+.input-wrapper {
+  margin-bottom: 3rem;
+}

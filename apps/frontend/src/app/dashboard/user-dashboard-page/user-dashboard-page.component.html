@@ -1,12 +1,13 @@
-<app-loader
-  *ngIf="isLoading"
-  size="large"
-  [isFullScreen]="true"
-  [text]="'shared.loading' | translate"
-></app-loader>
+<app-loader-full-screen *ngIf="isLoading"></app-loader-full-screen>
 
 <div class="wrapper">
   <app-sidebar></app-sidebar>
 
-  <h2>UserDashboard {{ user?.firstName }}</h2>
+  <app-family-creator *ngIf="!user?.family"></app-family-creator>
+
+  <div *ngIf="user?.family">
+    Has Family
+  </div>
+
+  <router-outlet></router-outlet>
 </div>

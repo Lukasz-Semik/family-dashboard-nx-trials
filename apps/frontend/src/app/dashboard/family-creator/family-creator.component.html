@@ -1,0 +1,31 @@
+<div class="wrapper">
+  <div class="card">
+    <h2 class="title">
+      {{ 'dashboard.noFamily.title' | translate }}
+    </h2>
+
+    <p class="description">
+      {{ 'dashboard.noFamily.description' | translate }}
+    </p>
+
+    <form [formGroup]="newFamilyForm" (ngSubmit)="onSubmit()">
+      <div class="input-wrapper">
+        <app-input
+          name="name"
+          [form]="newFamilyForm"
+          [labelText]="'shared.fields.familyName.label' | translate"
+          [placeholderText]="'shared.fields.familyName.placeholder' | translate"
+          [isFormSubmitted]="isSubmitted"
+        ></app-input>
+      </div>
+
+      <div class="button-wrapper">
+        <app-button-main
+          [isLoading]="isLoading"
+          [isDisabled]="isLoading"
+          [text]="'shared.create' | translate"
+        ></app-button-main>
+      </div>
+    </form>
+  </div>
+</div>

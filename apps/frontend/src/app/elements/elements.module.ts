@@ -22,6 +22,7 @@ import { DatePickerComponent } from './date-picker/date-picker.component';
 import { DropdownComponent } from './dropdown/dropdown.component';
 import { ErrorMsgComponent } from './error-msg/error-msg.component';
 import { LoaderComponent } from './loader/loader.component';
+import { LoaderFullScreenComponent } from './loader-full-screen/loader-full-screen.component';
 import { AvatarComponent } from './avatar/avatar.component';
 
 export const MY_FORMATS = {
@@ -46,6 +47,7 @@ export const MY_FORMATS = {
     DropdownComponent,
     ErrorMsgComponent,
     LoaderComponent,
+    LoaderFullScreenComponent,
     AvatarComponent,
   ],
   imports: [
@@ -77,6 +79,7 @@ export const MY_FORMATS = {
     DropdownComponent,
     ErrorMsgComponent,
     LoaderComponent,
+    LoaderFullScreenComponent,
     AvatarComponent,
   ],
 })

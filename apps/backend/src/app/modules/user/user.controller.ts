@@ -18,7 +18,7 @@ import { LocalAuthGuard } from '@app-be/modules/auth/guards/local-auth.guard';
 
 import { CreateUserPipe } from './pipes/create-user/create-user.pipe';
 import { ConfirmUserValidatorPipe } from './pipes/confirm-user/confirm-user.pipe';
-import { RegistratorService } from './services/registrator.service';
+import { RegistrationService } from './services/registration.service';
 import { AuthService } from '../auth/auth.service';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 import { UserService } from './services/user.service';
@@ -26,7 +26,7 @@ import { UserService } from './services/user.service';
 @Controller(userRoutes.name)
 export class UserController {
   public constructor(
-    private registratorService: RegistratorService,
+    private registrationService: RegistrationService,
     private authService: AuthService,
     private userService: UserService
   ) {}
@@ -37,7 +37,7 @@ export class UserController {
     @Body() body: UserSignUpPostOptions,
     @Res() res: Response
   ): Promise<Response> {
-    const user = await this.registratorService.createUser(body);
+    const user = await this.registrationService.createUser(body);
 
     return res.status(HttpStatus.CREATED).json({
       msg: 'User has been successfully created',
@@ -53,7 +53,7 @@ export class UserController {
     @Body() body: UserConfirmPatchOptions,
     @Res() res: Response
   ): Promise<Response> {
-    const user = await this.registratorService.confirmUser(body);
+    const user = await this.registrationService.confirmUser(body);
 
     return res.status(HttpStatus.OK).json({
       msg: 'User has been successfully confirmed',

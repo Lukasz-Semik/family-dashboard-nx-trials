@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { LandingsModule } from './landings/landings.module';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { DashboardModule } from './dashboard/dashboard.module';
+import { ShoppingListMdoule } from './shopping-list/shopping-list.module';
 import { ElementsModule } from './elements/elements.module';
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -31,6 +32,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     AppRoutingModule,
     LandingsModule,
     DashboardModule,
+    ShoppingListMdoule,
     BrowserAnimationsModule,
   ],
   bootstrap: [AppComponent],

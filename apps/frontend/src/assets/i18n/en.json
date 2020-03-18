@@ -11,10 +11,17 @@
       "confirm": "Confirm your account"
     }
   },
+  "dashboard": {
+    "noFamily": {
+      "title": "You don't have a family yet! Let's get started :)",
+      "description": "You can ask family head to be added to existing family or create an own one."
+    }
+  },
   "shared": {
     "submit": "Submit",
     "next": "Next",
     "back": "Back",
+    "create": "Create",
     "loading": "Loading...",
     "fields": {
       "email": {
@@ -28,6 +35,10 @@
       "passwordConfirm": {
         "label": "Confirm password",
         "placeholder": "Confirm you password"
+      },
+      "familyName": {
+        "label": "Family name",
+        "placeholder": "Your family name"
       },
       "firstName": {
         "label": "First name",

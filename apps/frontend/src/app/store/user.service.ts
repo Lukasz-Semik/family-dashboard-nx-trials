@@ -16,9 +16,9 @@ export class UserService {
     this.setUser();
   }
 
-  private async setUser() {
+  public async setUser(refreshUser?: boolean) {
     try {
-      if (this.authService.user) {
+      if (this.authService.user && !refreshUser) {
         this.user = this.authService.user;
       } else {
         this.isLoading = true;
