@@ -16,6 +16,10 @@
   padding: 2rem;
 }
 
+.avatar-wrapper {
+  margin-bottom: 6rem;
+}
+
 .sidebar-item-wrapper {
   padding-left: 3rem;
 }
@@ -26,4 +30,10 @@
   display: flex;
   justify-content: center;
   width: 100%;
+}
+
+.link {
+  display: block;
+  padding-left: 1rem;
+  margin-bottom: 2rem;
 }

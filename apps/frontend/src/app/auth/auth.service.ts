@@ -51,8 +51,11 @@ export class AuthService {
 
       if (user) {
         this.user = user;
-        this.routerService.navigate(['/dashboard']);
         this.isLoading = false;
+
+        if (!this.routerService.url.includes('/dashboard')) {
+          this.routerService.navigate(['/dashboard']);
+        }
 
         return;
       }

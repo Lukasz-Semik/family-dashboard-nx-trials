@@ -12,6 +12,9 @@
     }
   },
   "dashboard": {
+    "signOut": "Sign Out",
+    "title": "Hello, {{ value }}",
+    "description": "This is your starting place to make your family's life easier!",
     "noFamily": {
       "title": "You don't have a family yet! Let's get started :)",
       "description": "You can ask family head to be added to existing family or create an own one."

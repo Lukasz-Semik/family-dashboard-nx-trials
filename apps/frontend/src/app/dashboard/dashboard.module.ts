@@ -7,16 +7,18 @@ import { AngularSvgIconModule } from 'angular-svg-icon';
 
 import { ElementsModule } from '@app-fe/elements/elements.module';
 
-import { UserDashboardPage } from './user-dashboard-page/user-dashboard-page.component';
+import { UserDashboardPageComponent } from './user-dashboard-page/user-dashboard-page.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { SidebarItemComponent } from './sidebar-item/sidebar-item.component';
 import { FamilyCreatorComponent } from './family-creator/family-creator.component';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
+import { AccountSettingsPageComponent } from './account-settings-page/account-settings-page.component';
 
 @NgModule({
   declarations: [
-    UserDashboardPage,
+    UserDashboardPageComponent,
     UserDashboardComponent,
+    AccountSettingsPageComponent,
     SidebarComponent,
     SidebarItemComponent,
     FamilyCreatorComponent,
@@ -29,6 +31,6 @@ import { UserDashboardComponent } from './user-dashboard/user-dashboard.componen
     CommonModule,
     AngularSvgIconModule.forRoot(),
   ],
-  exports: [UserDashboardPage],
+  exports: [UserDashboardPageComponent, UserDashboardComponent, AccountSettingsPageComponent],
 })
 export class DashboardModule {}

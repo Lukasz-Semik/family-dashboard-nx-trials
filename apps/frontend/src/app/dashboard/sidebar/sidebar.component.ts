@@ -10,7 +10,7 @@ import { UserService } from '../../store/user.service';
   styleUrls: ['./sidebar.component.scss'],
 })
 export class SidebarComponent {
-  constructor(private routerService: Router, private userService: UserService) {}
+  constructor(public routerService: Router, private userService: UserService) {}
 
   public onSignOut() {
     setLocalStorageValue(APP_TOKEN_KEY, '');

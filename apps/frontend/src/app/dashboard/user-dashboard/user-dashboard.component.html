@@ -1,3 +1,12 @@
-<div>
-  User Dashboard
+<div *ngIf="user.family">
+  <app-layout
+    [title]="'dashboard.title' | translate: { value: user.firstName }"
+    [description]="'dashboard.description' | translate"
+  >
+    <div class="card family-wrapper">
+      <h4 class="family-title">
+        <b>{{ user.family?.name }}</b> Family
+      </h4>
+    </div>
+  </app-layout>
 </div>
