@@ -16,8 +16,4 @@ export class AvatarsGroupComponent {
   public get counterValue() {
     return this.avatars.length - 3;
   }
-
-  public get avatarsToDisplay() {
-    return this.avatars.slice(0, 3);
-  }
 }

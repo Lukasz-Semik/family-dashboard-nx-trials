@@ -1,7 +1,26 @@
+<!-- https://github.com/angular/components/issues/10039 -->
 <div class="wrapper">
-  <div class="avatar-wrapper" *ngFor="let avatar of avatarsToDisplay">
+  <div class="avatar-wrapper">
     <app-avatar
-      [userName]="avatar.userName"
+      [userName]="avatars[0].userName"
+      size="50"
+      [isTextHidden]="true"
+      [hasTooltip]="true"
+    ></app-avatar>
+  </div>
+
+  <div *ngIf="!!(avatars && avatars[1])" class="avatar-wrapper">
+    <app-avatar
+      [userName]="avatars[1].userName"
+      size="50"
+      [isTextHidden]="true"
+      [hasTooltip]="true"
+    ></app-avatar>
+  </div>
+
+  <div *ngIf="!!(avatars && avatars[2])" class="avatar-wrapper">
+    <app-avatar
+      [userName]="avatars[1].userName"
       size="50"
       [isTextHidden]="true"
       [hasTooltip]="true"
