@@ -1,0 +1,14 @@
+<div class="wrapper">
+  <div class="avatar-wrapper" *ngFor="let avatar of avatarsToDisplay">
+    <app-avatar
+      [userName]="avatar.userName"
+      size="50"
+      [isTextHidden]="true"
+      [hasTooltip]="true"
+    ></app-avatar>
+  </div>
+
+  <div *ngIf="counterValue > 0" class="avatar-wrapper">
+    <app-avatar value="+1" size="50" [isTextHidden]="true"></app-avatar>
+  </div>
+</div>

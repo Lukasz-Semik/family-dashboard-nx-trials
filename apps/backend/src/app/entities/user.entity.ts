@@ -63,6 +63,9 @@ export class User {
   })
   public isFamilyHead: boolean;
 
+  @Column({ nullable: true })
+  familyId: string;
+
   @ManyToOne(type => Family, family => family.users)
   family: Family;
 

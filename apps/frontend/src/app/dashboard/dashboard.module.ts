@@ -13,6 +13,7 @@ import { SidebarItemComponent } from './sidebar-item/sidebar-item.component';
 import { FamilyCreatorComponent } from './family-creator/family-creator.component';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
 import { AccountSettingsPageComponent } from './account-settings-page/account-settings-page.component';
+import { FamilyPanelComponent } from './family-panel/family-panel.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { AccountSettingsPageComponent } from './account-settings-page/account-se
     SidebarComponent,
     SidebarItemComponent,
     FamilyCreatorComponent,
+    FamilyPanelComponent,
   ],
   imports: [
     TranslateModule,

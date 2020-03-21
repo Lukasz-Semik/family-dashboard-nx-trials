@@ -20,6 +20,6 @@ export function DatabaseOrmModule(): DynamicModule {
     // synchronize: envService.isTest(),
     synchronize: true,
     logging: envService.isDev(),
-    migrations: [__dirname + '/migrations/**/*{.ts,.js}'],
+    migrations: [__dirname + 'apps/backend/migrations/**/*{.ts,.js}'],
   });
 }

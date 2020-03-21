@@ -52,6 +52,16 @@ export class FamilyService implements ItemService<FamilyEntity, FamilyData> {
     }
   }
 
+  public async getItem(id: string) {
+    try {
+      const family = await this.repo.findOne({ id }, { relations: ['users'] });
+
+      return this.serialize(family);
+    } catch (err) {
+      throwError(HttpStatus.INTERNAL_SERVER_ERROR, err);
+    }
+  }
+
   public serialize(family: FamilyEntity) {
     return {
       ...family,

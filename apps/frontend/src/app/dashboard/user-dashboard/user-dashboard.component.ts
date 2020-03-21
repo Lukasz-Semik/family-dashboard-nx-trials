@@ -11,7 +11,6 @@ export class UserDashboardComponent {
   constructor(private userService: UserService) {}
 
   public get user() {
-    console.log(this.userService.user);
     return this.userService.user;
   }
 }

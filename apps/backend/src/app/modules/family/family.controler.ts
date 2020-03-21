@@ -1,4 +1,4 @@
-import { Controller, UseGuards, Post, Req, Res, UsePipes, HttpStatus } from '@nestjs/common';
+import { Controller, UseGuards, Post, Req, Res, UsePipes, HttpStatus, Get } from '@nestjs/common';
 
 import { familyRoutes } from '@family-dashboard/app-api-routes';
 
@@ -13,11 +13,25 @@ export class FamilyController {
   @UseGuards(JwtAuthGuard)
   @Post()
   @UsePipes(CreateFamilyValidatorPipe)
-  async create(@Req() req, @Res() res) {
+  async createFamily(@Req() req, @Res() res) {
     const family = await this.familyService.createItem(req.body, req.user.email);
 
     return res.status(HttpStatus.CREATED).json({
       msg: 'Family has been created',
+      data: {
+        family,
+      },
+    });
+  }
+
+  @UseGuards(JwtAuthGuard)
+  @Get(familyRoutes.item.name)
+  async getFamily(@Req() req, @Res() res) {
+    const { familyId } = req.params;
+    const family = await this.familyService.getItem(familyId);
+
+    return res.status(HttpStatus.OK).json({
+      msg: 'Family data',
       data: {
         family,
       },

@@ -5,6 +5,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatSelectModule } from '@angular/material/select';
 import { DateAdapter, MAT_DATE_LOCALE, MAT_DATE_FORMATS } from '@angular/material/core';
+import { RouterModule } from '@angular/router';
 import { AvatarModule } from 'ngx-avatar';
 import {
   MatMomentDateModule,
@@ -12,7 +13,7 @@ import {
   MAT_MOMENT_DATE_ADAPTER_OPTIONS,
 } from '@angular/material-moment-adapter';
 import { NgxSpinnerModule } from 'ngx-spinner';
-import { RouterModule } from '@angular/router';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 import { FieldComponent } from './field/field.component';
 import { InputComponent } from './input/input.component';
@@ -25,6 +26,8 @@ import { LoaderComponent } from './loader/loader.component';
 import { LoaderFullScreenComponent } from './loader-full-screen/loader-full-screen.component';
 import { AvatarComponent } from './avatar/avatar.component';
 import { LayoutComponent } from './layout/layout.component';
+import { TooltipComponent } from './tooltip/tooltip.component';
+import { AvatarsGroupComponent } from './avatars-group/avatars-group.component';
 
 export const MY_FORMATS = {
   parse: {
@@ -51,6 +54,8 @@ export const MY_FORMATS = {
     LoaderFullScreenComponent,
     AvatarComponent,
     LayoutComponent,
+    TooltipComponent,
+    AvatarsGroupComponent,
   ],
   imports: [
     ReactiveFormsModule,
@@ -63,6 +68,7 @@ export const MY_FORMATS = {
     NgxSpinnerModule,
     AvatarModule,
     RouterModule,
+    MatTooltipModule,
   ],
   providers: [
     {
@@ -84,6 +90,8 @@ export const MY_FORMATS = {
     LoaderFullScreenComponent,
     AvatarComponent,
     LayoutComponent,
+    TooltipComponent,
+    AvatarsGroupComponent,
   ],
 })
 export class ElementsModule {}
