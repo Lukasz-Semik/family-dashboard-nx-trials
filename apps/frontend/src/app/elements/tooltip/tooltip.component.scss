@@ -1,0 +1,10 @@
+@import 'apps/frontend/src/styles/_colors';
+
+.tooltip {
+  display: inline-block;
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+  background-color: $black;
+  box-shadow: $shadow-black-big;
+}

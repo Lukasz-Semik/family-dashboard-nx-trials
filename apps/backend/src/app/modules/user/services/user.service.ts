@@ -22,7 +22,7 @@ export class UserService implements ItemService<UserEntity, UserData> {
   }
 
   public async getByEmail(email: string) {
-    const user = await this.repo.findOne({ email }, { relations: ['family'] });
+    const user = await this.repo.findOne({ email });
 
     return user;
   }

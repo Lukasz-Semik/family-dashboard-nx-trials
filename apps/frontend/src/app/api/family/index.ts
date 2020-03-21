@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { FamilyCreatePostOptions } from '@family-dashboard/app-types';
+import { FamilyCreatePostOptions, FamilyData, AppResponse } from '@family-dashboard/app-types';
 import { familyRoutes } from '@family-dashboard/app-api-routes';
 
 import { AccessTokenService } from '@app-fe/auth/access-token.service';
@@ -19,5 +19,15 @@ export class FamilyApiService {
         },
       })
       .toPromise();
+  }
+
+  public getItem(familyId: string): Promise<AppResponse<{ family: FamilyData }>> {
+    return this.http
+      .get(getApiPath(familyRoutes.item.generateCallablePath(familyId)), {
+        headers: {
+          Authorization: `Bearer ${this.accessTokenService.get()}`,
+        },
+      })
+      .toPromise() as Promise<AppResponse<{ family: FamilyData }>>;
   }
 }

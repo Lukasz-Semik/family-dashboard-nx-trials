@@ -1,7 +1,5 @@
 import { Gender } from '@family-dashboard/app-constants';
 
-import { FamilyData } from '../family';
-
 export interface UserData {
   id: string;
   email: string;
@@ -12,7 +10,7 @@ export interface UserData {
   gender: Gender;
   isVerified: boolean;
   isFamilyHead: boolean;
-  family: FamilyData | null;
+  familyId: string;
 }
 
 export interface UserSignUpPostOptions {

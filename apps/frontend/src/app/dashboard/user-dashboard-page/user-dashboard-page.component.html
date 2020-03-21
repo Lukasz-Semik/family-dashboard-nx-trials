@@ -3,7 +3,7 @@
 <div class="wrapper">
   <app-sidebar></app-sidebar>
 
-  <app-family-creator *ngIf="!user?.family"></app-family-creator>
+  <app-family-creator *ngIf="!user?.familyId"></app-family-creator>
 
   <router-outlet></router-outlet>
 </div>

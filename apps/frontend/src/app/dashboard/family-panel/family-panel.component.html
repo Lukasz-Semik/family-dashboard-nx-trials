@@ -1,0 +1,13 @@
+<div class="card family-wrapper">
+  <h4 class="family-title">
+    {{ 'dashboard.familyPanel.title' | translate: { value: family?.name } }}
+  </h4>
+
+  <div *ngIf="!!avatars" class="avatar-group-wrapper">
+    <app-avatars-group [avatars]="avatars"></app-avatars-group>
+
+    <p class="members">
+      {{ 'dashboard.familyPanel.members' | translate: { value: avatars?.length || 0 } }}
+    </p>
+  </div>
+</div>

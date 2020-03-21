@@ -12,4 +12,8 @@ export class Routes {
   public get fullPath() {
     return `/api/${this.generatePath()}`;
   }
+
+  public generateCallablePath(id: string) {
+    return `/api/${this.prefix ? `${this.prefix}/` : ''}${id}`;
+  }
 }
