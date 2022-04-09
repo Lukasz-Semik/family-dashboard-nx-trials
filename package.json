@@ -58,7 +58,7 @@
     "core-js": "^2.5.4",
     "is-email": "^1.0.0",
     "jsonwebtoken": "^8.5.1",
-    "moment": "^2.24.0",
+    "moment": "^2.29.2",
     "ngx-avatar": "^3.7.0",
     "ngx-spinner": "^8.1.0",
     "passport": "^0.4.1",
